@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-05-19T12:18:41.632Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36" etag="d37Dl1guA8LbsBzKVcB3" version="14.6.13" type="github">
+<mxfile host="app.diagrams.net" modified="2021-05-19T12:19:18.365Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36" etag="zI5NLTGPUpXrldcCwrFb" version="14.6.13" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="637" dy="1236" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -7,11 +7,11 @@
         <mxCell id="gRtXBw3UCU254MnrOozd-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="vZhVcCD5NICC3cb1TvLy-0" target="gRtXBw3UCU254MnrOozd-3">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="vZhVcCD5NICC3cb1TvLy-0" value="Start" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="vZhVcCD5NICC3cb1TvLy-0" value="Start game" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="354" y="50" width="120" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="gRtXBw3UCU254MnrOozd-3" value="step 1" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="354" y="120" width="120" height="60" as="geometry" />
+        <mxCell id="gRtXBw3UCU254MnrOozd-3" value="Intro&lt;br&gt;" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="354" y="120" width="120" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
