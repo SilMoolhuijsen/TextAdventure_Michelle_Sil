@@ -13,6 +13,7 @@ AnswerA = ["A", "a", "A.", "a."]
 AnswerB = ["B", "b", "B.", "b."]
 AnswerC = ["C", "c", "C.", "c."]
 AnswerD = ["D", "d", "D.", "d."]
+inventory = []
 
 def start_game():
   ts = 0.0075
@@ -91,7 +92,7 @@ def start_game():
       Tools()
     elif IntroInput in AnswerD:
       slowprint("You bump against the door and it opens. You see two armed men staring down at you.\nYOU WERE KNOCKED UNCONCIOUS\n\n")
-      input("[PRESS ENTER TO CONTINUE]")
+      input("[PRESS ENTER TO RESPAWN]")
       os.system('cls' if os.name == 'nt' else "printf '\033c'")
       IntroQuestion()
     else:
@@ -104,11 +105,12 @@ def start_game():
     MacheteInput1 = input()
     if MacheteInput1 in AnswerA:
       slowprint("You hear the deep voices coming closer. You see two armed men enter the room. One runs towards you.\nYOU WENT UNCONCIOUS BY A TASER GUN\n\n")
-      input("[PRESS ENTER TO CONTINUE]")
+      input("[PRESS ENTER TO RESPAWN]")
       os.system('cls' if os.name == 'nt' else "printf '\033c'")
       IntroQuestion()
     elif MacheteInput1 in AnswerB:
-      slowprint("You acquire the machete and place it in your right hand. You use it to cut the rope. You're now able to walk freely.")
+      inentory.append("Machete")
+      slowprint("You acquire the machete and place it in your right hand. You use it to cut the rope. You're now able to move about freely.")
       input("[PRESS ENTER TO CONTINUE]")
       os.system('cls' if os.name == 'nt' else "printf '\033c'")
       MacheteInput2 = slowprint("Where will you go now?\nA. To the handgun.\nB. To the tools")
@@ -118,9 +120,8 @@ def start_game():
       Machete()
 
   def Handgun():
-    print("hello")
+
   def Tools():
-    print("bye")
 
   start()
 start_game()
