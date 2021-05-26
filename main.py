@@ -26,24 +26,24 @@ def start_game():
         time.sleep(ts * 16)
       else:
         time.sleep(ts)
-        
-  TextSpeed = slowprint("Choose a text speed, Very Slow (1), Slow (2), Normal (3), Fast (4) or Very Fast (5): ")
-  TextSpeed = input()
-  if TextSpeed in txtSpeed5:
-    ts = 0.005
-  elif TextSpeed in txtSpeed4:
-    ts = 0.01
-  elif TextSpeed in txtSpeed3:
-    ts = 0.02
-  elif TextSpeed in txtSpeed2:
-    ts = 0.05
-  elif TextSpeed in txtSpeed1:
-    ts = 0.1
-  else:
-    slowprint("That is not a valid text speed. You can only choose Very Slow (1), Slow (2), Normal (3), Fast (4) or Very Fast (5).\n\n")
-    time.sleep(0.5)
-    start_game()
-  os.system('cls' if os.name == 'nt' else "printf '\033c'")
+  def choose_ts():      
+    TextSpeed = slowprint("Choose a text speed, Very Slow (1), Slow (2), Normal (3), Fast (4) or Very Fast (5): ")
+   TextSpeed = input()
+    if TextSpeed in txtSpeed5:
+      ts = 0.005
+    elif TextSpeed in txtSpeed4:
+      ts = 0.01
+    elif TextSpeed in txtSpeed3:
+      ts = 0.02
+    elif TextSpeed in txtSpeed2:
+      ts = 0.05
+    elif TextSpeed in txtSpeed1:
+      ts = 0.1
+    else:
+      slowprint("That is not a valid text speed. You can only choose Very Slow (1), Slow (2), Normal (3), Fast (4) or Very Fast (5).\n\n")
+      time.sleep(0.5)
+      start_game()
+      os.system('cls' if os.name == 'nt' else "printf '\033c'")
 
   def start():
     slowprint("What's your name?\n")
