@@ -29,7 +29,7 @@ def start_game():
         time.sleep(ts)
   def choose_ts():      
     TextSpeed = slowprint("Choose a text speed, Very Slow (1), Slow (2), Normal (3), Fast (4) or Very Fast (5): ")
-   TextSpeed = input()
+    TextSpeed = input()
     if TextSpeed in txtSpeed5:
       ts = 0.005
     elif TextSpeed in txtSpeed4:
@@ -109,19 +109,19 @@ def start_game():
       os.system('cls' if os.name == 'nt' else "printf '\033c'")
       IntroQuestion()
     elif MacheteInput1 in AnswerB:
-      inentory.append("Machete")
+      inventory.append("Machete")
       slowprint("You acquire the machete and place it in your right hand. You use it to cut the rope. You're now able to move about freely.")
       input("[PRESS ENTER TO CONTINUE]")
       os.system('cls' if os.name == 'nt' else "printf '\033c'")
-      MacheteInput2 = slowprint("Where will you go now?\nA. To the handgun.\nB. To the tools")
+      MacheteInput2 = slowprint("Where will you go now?\nA. To the handgun.\nB. To the tools\nC. To the door")
     else:
       slowprint("Please choose A or B only.")
       time.sleep(1)
       Machete()
 
   def Handgun():
-
+    print("hi")
   def Tools():
-
+    print("hi")
   start()
 start_game()
