@@ -7,6 +7,7 @@ txtSpeed4 = ["Fast", "fast", "4"]
 txtSpeed3 = ["Normal", "normal", "3"]
 txtSpeed2 = ["Slow", "slow", "2"]
 txtSpeed1 = ["Very Slow", "very slow", "very Slow", "Very slow", "1"]
+txtSpeed6 = ["Fastest", "fastest", "6"]
 END_SENTENCE = [".", "!", "?"]
 COMMA = ","
 AnswerA = ["A", "a", "A.", "a."]
@@ -27,8 +28,8 @@ def start_game():
         time.sleep(ts * 16)
       else:
         time.sleep(ts)
-  def choose_ts():      
-    TextSpeed = slowprint("Choose a text speed, Very Slow (1), Slow (2), Normal (3), Fast (4) or Very Fast (5): ")
+  def choose_ts():    
+    TextSpeed = slowprint("Choose a text speed, Very Slow (1), Slow (2), Normal (3), Fast (4), Very Fast (5) or Fasterst (6): ")
     TextSpeed = input()
     if TextSpeed in txtSpeed5:
       ts = 0.005
@@ -40,11 +41,14 @@ def start_game():
       ts = 0.05
     elif TextSpeed in txtSpeed1:
       ts = 0.1
+    elif TextSpeed in txtSpeed6:
+      ts = 0
     else:
-      slowprint("That is not a valid text speed. You can only choose Very Slow (1), Slow (2), Normal (3), Fast (4) or Very Fast (5).\n\n")
+      slowprint("That is not a valid text speed. Choose from Very Slow (1), Slow (2), Normal (3), Fast (4) or Very Fast (5).\n\n")
       time.sleep(0.5)
       start_game()
       os.system('cls' if os.name == 'nt' else "printf '\033c'")
+    start()
 
   def start():
     slowprint("What's your name?\n")
@@ -123,5 +127,5 @@ def start_game():
     print("hi")
   def Tools():
     print("hi")
-  start()
+  choose_ts()
 start_game()
