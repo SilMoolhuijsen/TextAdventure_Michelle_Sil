@@ -1,6 +1,7 @@
 import time
 import os
 import sys
+import Classes
 
 txtSpeed5 = ["Very Fast", "very fast", "very Fast", "Very fast", "5"]
 txtSpeed4 = ["Fast", "fast", "4"]
