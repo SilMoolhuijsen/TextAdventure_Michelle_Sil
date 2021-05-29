@@ -13,6 +13,10 @@ txtSpeed6 = ["Fastest", "fastest", "6"]
 END_SENTENCE = [".", "!", "?"]
 COMMA = ","
 
+#Lists containing possible correct answers
+AnsYes = ["YES", "Y"]
+AnsNo = ["NO", "N"]
+
 #List that stores all of the player's items
 player_inventory = []
 
@@ -98,7 +102,7 @@ def start_game():
           os.system('cls' if os.name == 'nt' else "printf '\033c'")
           Machete()
         elif IntroInput == "B":
-          slowprint("You're at the handgun, but you can't reach it. You'll need to cut the rope and free yourself.\n\n")
+          slowprint("You're at the handgun.")
           input("[PRESS ENTER TO CONTINUE]")
           os.system('cls' if os.name == 'nt' else "printf '\033c'")
           Handgun()
@@ -113,7 +117,7 @@ def start_game():
           os.system('cls' if os.name == 'nt' else "printf '\033c'")
           IntroQuestion()
         elif IntroInput == "E":
-          slowprint("You can't do anything there.\n\n")
+          slowprint("You can't do anything there right now.\n\n")
           IntroQuestion()
         else:
           slowprint("Please choose A, B, C, D or E only.\n\n")
@@ -130,15 +134,21 @@ def start_game():
           IntroQuestion()
         elif MacheteInput1 == "B":
           player_inventory.append("machete")
-          slowprint("You acquire the machete and place it in your right hand. You use it to cut the rope. You're now able to move about freely.")
+          slowprint("You've acquired the machete! You place it in your right hand and use it to cut the rope. You're now able to move about freely.")
           input("[PRESS ENTER TO CONTINUE]")
           os.system('cls' if os.name == 'nt' else "printf '\033c'")
           def Machete2():
             MacheteInput2 = modified_input("Where will you go now?\nA. To the handgun.\nB. To the tools\nC. Through the door\n")
             if MacheteInput2 == "A":
+              slowprint("You're at the handgun.")
+              input("[PRESS ENTER TO CONTINUE]")
+              os.system('cls' if os.name == 'nt' else "printf '\033c'")
               Handgun()
             elif MacheteInput2 == "B":
-              Tools()
+              slowprint("You made it to the tools.\n\n")
+              input("[PRESS ENTER TO CONTINUE]")
+              os.system('cls' if os.name == 'nt' else "printf '\033c'")
+              Tools()            
             elif MacheteInput2 == "C":
               slowprint("You open the door cautiously and see two startled armed men.\nYOU WERE SHOT AT AGGRESSIVELY WITH A RIFLE\n\n")
               input("[PRESS ENTER TO RESPAWN]")
@@ -156,27 +166,60 @@ def start_game():
 
       #Question if player decided to go to handgun
       def Handgun():
-        slowprint("")
-        HandgunInput1 = modified_input()
+        if "machete" in player_inventory:
+          HandgunInput = modified_input("Will you grab the handgun? [Y/N]\n")
+          if HandgunInput in AnsYes:
+            player_inventory.append("handgun")
+            slowprint("It's is a fake. You take it anyway.")
+          elif HandgunInput in AnsNo:
+            slowprint("You left the handgun on the ground.")
         
+        elif "machete" not in player_inventory:
+          slowprint("You can't reach it. You'll need to cut the rope and free yourself.\n\n")
+          IntroQuestion()
 
       #Question if player decided to go to tools
       def Tools():
         slowprint("There's screwdrivers, hammers and a crowbar.\n\n")
         if "machete" in player_inventory:
-          ToolsInput1 = modified_input("Which tool will you grab?\nA. A screwdriver\nB. A hammer\nC. The crowbar\n")
+          ToolsInput1 = modified_input("You're only able to hold one tool at a time. Which tool will you grab?\nA. A screwdriver\nB. A hammer\nC. The crowbar\n")
           if ToolsInput1 == "A":
             player_inventory.append("screwdriver")
+            slowprint("\n\nYou obtained a screwdriver!\n\n")
           elif ToolsInput1 == "B":
             player_inventory.append("hammer")
+            slowprint("\n\nYou obtained a hammer!\n\n")
           elif ToolsInput1 == "C":
             player_inventory.append("crowbar")
+            slowprint("\n\nYou obtained a crowbar!\n\n")
           else:
             slowprint("Please choose A, B or C only.\n\n")
             time.sleep(1)
             Tools()
-        else:
-          slowprint("But unfortunately, you aren't able to grab any of them now")
+          def Tools2():
+            if "handgun" in player_inventory:
+              ToolsInput2 = modified_input("Where will you go now?\nA. Through the door\nB. To the vent\n")
+            elif "handgun" not in player_inventory:
+              ToolsInput2 = modified_input("Where will you go now?\nA. Through the door\nB. To the vent\nC. To the handgun")
+            if ToolsInput2 == "A":
+              slowprint("You open the door cautiously and see two startled armed men.\nYOU WERE SHOT AT AGGRESSIVELY WITH A RIFLE\n\n")
+              input("[PRESS ENTER TO RESPAWN]")
+              os.system('cls' if os.name == 'nt' else "printf '\033c'")
+              Tools2()
+            elif ToolsInput2 == "B":
+
+            elif ToolsInput2 == "C" and "handgun" is not in player_inventory:
+              slowprint("You're at the handgun.")
+              input("[PRESS ENTER TO CONTINUE]")
+              os.system('cls' if os.name == 'nt' else "printf '\033c'")
+              Handgun()
+            else:
+              slowprint("Please choose A, B or C only.\n\n")
+              time.sleep(1)
+              Tools2()
+          Tools2()
+        elif "machete" not in player_inventory:
+          slowprint("But unfortunately, you aren't able to grab any of them now. You'll need to free yourself first.")
           IntroQuestion()
       
       #Statements to run the different large functions of the game
