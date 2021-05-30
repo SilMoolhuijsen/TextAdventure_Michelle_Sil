@@ -13,7 +13,7 @@ txtSpeed6 = ["Fastest", "fastest", "6"]
 END_SENTENCE = [".", "!", "?"]
 COMMA = ","
 
-#Lists containing possible correct answers
+#Lists containing some valid answers
 AnsYes = ["YES", "Y"]
 AnsNo = ["NO", "N"]
 
