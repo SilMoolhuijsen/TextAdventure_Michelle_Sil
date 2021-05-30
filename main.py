@@ -1,7 +1,6 @@
 import time
 import os
 import sys
-import classes
 
 #Lists used when choosing the game's text speed
 txtSpeed5 = ["Very Fast", "very fast", "very Fast", "Very fast", "5"]
@@ -253,9 +252,9 @@ def start_game():
       #If player goes to vent
       def Vent():
         
-
-      #Statements to run the different large functions of the game
+      #Function that asks for the player's name (and starts the entire game)
       choose_name_start()
+    #Statements to run the different large functions of the game
     start()
   choose_ts()
 start_game()
