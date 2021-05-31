@@ -1,16 +1,11 @@
-l1 = ["yes", "no"]
+yes = True
 
-def yesl1():
-  global yes_in_l1
-  if "yes" in l1:
-    yes_in_l1 = True
-  if "no" in l1:
-    yes_in_l1 = False
+def wow():
+  if yes:
+    print("yes")
 
-yesl1()
+if yes:
+  print("true")
 
-if yes_in_l1:
-  print("yes_in_l1")
-
-if not yes_in_l1:
-  print("no yes_in_l1")
+if not yes:
+  print("False")
