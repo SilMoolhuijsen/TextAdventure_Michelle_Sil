@@ -52,7 +52,7 @@ def start_game():
     global ts
     ts = 0.0075
 
-    TextSpeed = slowprint("Text speeds: Very Slow (1), Slow (2), Normal (3), Fast (4), Very Fast (5) or Fasterst (6)\nChoose a text speed: ")
+    TextSpeed = slowprint("Text speeds: Very Slow (1), Slow (2), Normal (3), Fast (4), Very Fast (5) or Fastest (6)\nChoose a text speed: ")
     TextSpeed = input()
     os.system('cls' if os.name == 'nt' else "printf '\033c'")
 
@@ -71,7 +71,6 @@ def start_game():
     else:
       slowprint("That is not a valid text speed. Choose from Very Slow (1), Slow (2), Normal (3), Fast (4) or Very Fast (5).\n\n")
       time.sleep(0.5)
-      os.system('cls' if os.name == 'nt' else "printf '\033c'")
       choose_ts()
     
     choose_name()
@@ -80,31 +79,55 @@ def start_game():
   def choose_name():
     player_name = modified_input("What's your name?\n")
     slowprint("\nOkay " + player_name + ", let's embark on an adventure!")
-    time.sleep(1.0)
+    time.sleep(1)
     os.system('cls' if os.name == 'nt' else "printf '\033c'")
     time.sleep(0.1)
     intro()
   
   #Introduction to the text adventure
   def intro():
-    slowprint("You're a millionair and retired CIA agent. You were one of the best fighters ofas the entire CIA. But you're not as skillfull as you were 25 years ago. You're 55 years old now. It's been 3 years since you retired. You've just been enjoying life since then. But that is all going to change.\n\n")
-    input("[PRESS ENTER TO CONTINUE]\n\n")
+    def introtext1():
+      slowprint("You're a millionair and retired CIA agent. You were one of the best fighters ofas the entire CIA. But you're not as skillfull as you were 25 years ago. You're 55 years old now. It's been 3 years since you retired. You've just been enjoying life since then. But that is all going to change.\n\n")
 
-    slowprint("One morning, you wake up. When you analyse the situation, you notice that you're not in your bed, you're sitting in a chair. Also, you don't know this place. It's a room with no windows. Now, you also feel your ankles and torso have been tied to the chair that you're sitting in. You hear deep voices talking in the background. Maybe they're criminals who kidnapped you for your money. Or perhaps they want classified information about the CIA. You have no idea how or why you're in this situation. But you know that you have to get out of here as soon as possible.\n\n")
-    input("[PRESS ENTER TO CONTINUE]\n\n")
+      input("[PRESS ENTER FOR NEXT PAGE]")
 
-    slowprint("You don't feel any weapons on you, so you start to examine the room.\n")
-    slowprint("You find you're sitting exactly in the centre of the room.\n")
-    slowprint("You see a machete on the table against the wall approximately 2 metres to your left. One of the kidnappers must have forgotten about it.\n")
-    time.sleep(0.5)
-    slowprint("There's a handgun on the ground about 1,5 metres in front of you.\n")
-    time.sleep(0.5)
-    slowprint("And some tools hanging from the wall roughly 2 metres to your right-hand side.\n")
-    time.sleep(0.5)
-    slowprint("There's two possible exits, the wall in front you has a door on the right side. And there is a vent in the ceiling close to the tools.\n\n")
-    time.sleep(0.5)
-    input("[PRESS ENTER TO CONTINUE]")
-    IntroQuestion()
+      os.system('cls' if os.name == 'nt' else "printf '\033c'")
+
+      introtext2()
+
+
+    def introtext2():
+      slowprint("One morning, you wake up. When you analyse the situation, you notice that you're not in your bed, you're sitting in a chair. Also, you don't know this place. It's a room with no windows. Now, you also feel your ankles and torso have been tied to the chair that you're sitting in. You hear deep voices talking in the background. Maybe they're criminals who kidnapped you for your money. Or perhaps they want classified information about the CIA. You have no idea how or why you're in this situation. But you know that you have to get out of here as soon as possible.\n\n")
+
+      ENTER_or_B = modified_input("[ENTER B FOR LAST PAGE / PRESS ENTER FOR NEXT PAGE]")
+
+      os.system('cls' if os.name == 'nt' else "printf '\033c'")
+
+      if ENTER_or_B == "B":
+        introtext1()
+      
+      else:
+        introtext3()
+
+    def introtext3():
+      slowprint("You don't feel any weapons on you, so you start to examine the room.\n")
+      slowprint("You find you're sitting exactly in the centre of the room.\n")
+      slowprint("You see a machete on the table against the wall approximately 2 metres to your left. One of the kidnappers must have forgotten about it.\n")
+      slowprint("There's a handgun on the ground about 1,5 metres in front of you.\n")
+      slowprint("And some tools hanging from the wall roughly 2 metres to your right-hand side.\n")
+      slowprint("There's two possible exits, the wall in front you has a door on the right side. And there is a vent in the ceiling close to where the handgun is located.\n\n")
+
+      ENTER_or_B = modified_input("[ENTER B FOR LAST PAGE / PRESS ENTER FOR NEXT PAGE]")
+
+      os.system('cls' if os.name == 'nt' else "printf '\033c'")
+
+      if ENTER_or_B == "B":
+        introtext2()
+      
+      else:
+        IntroQuestion()
+    
+    introtext1()
 
   #First question of the game
   def IntroQuestion():
