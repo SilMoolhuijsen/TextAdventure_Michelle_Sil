@@ -1,15 +1,6 @@
-global yes
-yes = False
+a, b, c = ["jack", "james", "jonah"]
 
-def wow():
-  global yes
-  yes = False
+a, b, c.remove(a)
 
-  def wow2():
-    global yes
-    yes = True
-  
-  wow2()
-wow()
-
-print(yes)
+for name in a, b, c:
+  print(name)

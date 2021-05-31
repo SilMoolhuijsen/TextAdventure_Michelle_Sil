@@ -143,12 +143,12 @@ def start_game():
         introtext2()
       
       else:
-        IntroQuestion()
+        Centre()
     
     introtext1()
 
   #First question of the game
-  def IntroQuestion():
+  def Centre():
     os.system('cls' if os.name == 'nt' else "printf '\033c'")
     
     if not player_freed:
@@ -171,7 +171,7 @@ def start_game():
 
       input("[PRESS ENTER TO CONTINUE]")
 
-      IntroQuestion()
+      Centre()
 
     elif IntroInput == "E":
       Vent()
@@ -181,7 +181,7 @@ def start_game():
 
       time.sleep(1)
       
-      IntroQuestion()
+      Centre()
 
   #Question if player decided to go to machete 
   def Machete():
@@ -196,7 +196,7 @@ def start_game():
 
       input("[PRESS ENTER TO CONTINUE]")
       
-      IntroQuestion()
+      Centre()
     
     elif MacheteInput1 == "B":
       
@@ -264,7 +264,7 @@ def start_game():
     if not player_freed:
       slowprint("You can't reach it. You'll need to cut the rope and free yourself.\n\n")
 
-      IntroQuestion()
+      Centre()
     
     elif player_freed:
       HandgunInput1 = modified_input("Will you grab the handgun? [Y/N]\n")
@@ -320,7 +320,7 @@ def start_game():
     if not player_freed:
       slowprint("But unfortunately, you aren't able to grab any of them now. You'll need to free yourself first.")
 
-      IntroQuestion()
+      Centre()
     
     elif player_freed:
       ToolCheck = any(item in player_inventory for item in ToolsList)
