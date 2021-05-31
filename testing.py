@@ -1,6 +1,6 @@
-a, b, c = ["jack", "james", "jonah"]
+import os
 
-a, b, c.remove(a)
+def a():
+  os.system('cls' if os.name == 'nt' else "printf '\033c'")
 
-for name in a, b, c:
-  print(name)
+  print()

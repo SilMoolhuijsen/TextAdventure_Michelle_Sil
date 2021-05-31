@@ -155,7 +155,12 @@ def start_game():
       IntroInput = modified_input("What will you do?\nA. Hop over to the machete\nB. Reach for the handgun\nC. Go to the tools\nD. Move to the door and try to open it\nE. Go to the vent\n")
 
     elif player_freed:
-      IntroInput = modified_input("What will you do?\nA. Walk to the machete\nB. Go to the handgun\nC. Walk over to the tools\nD. Move to the door and try to open it\nE. Go to the vent\n")
+      global MoveQuestion
+      global Q, machete, handgun, tools, door, vent
+      MoveQuestion = Q, machete, handgun, tools, door, vent = ["What will you do?", "A. Walk to the machete", "B. Go to the handgun", "C. Walk over to the tools", "D. Move to the door and try to open it", "E. Go to the vent"]
+      
+      for element in MoveQuestion:
+        IntroInput = modified_input(element)
 
     if IntroInput == "A":
       Machete()
@@ -262,8 +267,8 @@ def start_game():
     slowprint("You're at the handgun.")
 
     if not player_freed:
-      slowprint("You can't reach it. You'll need to cut the rope and free yourself.\n\n")
-
+      slowprint("You can't reach it. You'll need to cut the rope to free yourself.\n\n")
+      
       Centre()
     
     elif player_freed:
