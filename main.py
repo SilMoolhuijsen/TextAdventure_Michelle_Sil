@@ -1,4 +1,4 @@
-#importing modules
+#imports modules
 import time
 import os
 import sys
@@ -81,7 +81,7 @@ def start_game():
     elif TextSpeed in txtSpeed6:
       ts = 0
     else:
-      slowprint("That is not a valid text speed. Choose from Very Slow (1), Slow (2), Normal (3), Fast (4) or Very Fast (5).\n\n")
+      slowprint("\nThat is not a valid text speed. Choose from Very Slow (1), Slow (2), Normal (3), Fast (4) or Very Fast (5).\n\n")
 
       time.sleep(0.5)
 
@@ -95,14 +95,12 @@ def start_game():
 
     player_name = input()
 
-    slowprint("\nOkay " + player_name + ", let's embark on an adventure!")
-    
-    time.sleep(1)
-    
+    slowprint("\nOkay " + player_name + ", let's embark on an adventure!\n\n")
+
+    input("[PRESS ENTER TO CONTINUE]")
+ 
     os.system('cls' if os.name == 'nt' else "printf '\033c'")
-    
-    time.sleep(0.1)
-    
+
     intro()
   
   #Introduction to the text adventure
@@ -121,7 +119,7 @@ def start_game():
     def introtext2():
       slowprint("One morning, you wake up. When you analyse the situation, you notice that you're not in your bed, you're sitting in a chair. Also, you don't know this place. It's a room with no windows. Now, you also feel your ankles and torso have been tied to the chair that you're sitting in. You hear deep voices talking in the background. Maybe they're criminals who kidnapped you for your money. Or perhaps they want classified information about the CIA. You have no idea how or why you're in this situation. But you know that you have to get out of here as soon as possible.\n\n")
 
-      ENTER_or_B = modified_input("[ENTER B FOR LAST PAGE / PRESS ENTER FOR NEXT PAGE]")
+      ENTER_or_B = modified_input("[ENTER B FOR LAST PAGE / PRESS ENTER FOR NEXT PAGE]\n")
 
       os.system('cls' if os.name == 'nt' else "printf '\033c'")
 
@@ -139,7 +137,7 @@ def start_game():
       slowprint("And some tools hanging from the wall roughly 2 metres to your right-hand side.\n")
       slowprint("There's two possible exits, the wall in front you has a door on the right side. And there is a vent in the ceiling close to where the handgun is located.\n\n")
 
-      ENTER_or_B = modified_input("[ENTER B FOR LAST PAGE / PRESS ENTER TO START ADVENTURE]")
+      ENTER_or_B = modified_input("[ENTER B FOR LAST PAGE / PRESS ENTER TO START ADVENTURE]\n")
 
       os.system('cls' if os.name == 'nt' else "printf '\033c'")
 
@@ -182,7 +180,7 @@ def start_game():
       Vent()
 
     else:
-      slowprint("Please choose A, B, C, D or E only.")
+      slowprint("\nPlease choose A, B, C, D or E only.")
 
       time.sleep(1)
       
@@ -217,7 +215,7 @@ def start_game():
       input("[PRESS ENTER TO CONTINUE]")
     
     else:
-      slowprint("Please choose A or B only.")
+      slowprint("\nPlease choose A or B only.")
 
       time.sleep(1)
       
@@ -249,7 +247,7 @@ def start_game():
         slowprint("You left the handgun on the ground")
       
       else:
-        slowprint("Please choose Yes or No only.")
+        slowprint("\nPlease choose Yes or No only.")
 
         time.sleep(1)
       
@@ -292,7 +290,7 @@ def start_game():
             slowprint("\n\nYou obtained a crowbar!\n\n")
 
           else:
-            slowprint("Please choose A, B or C only.\n\n")
+            slowprint("\nPlease choose A, B or C only.")
 
             time.sleep(1)
             
