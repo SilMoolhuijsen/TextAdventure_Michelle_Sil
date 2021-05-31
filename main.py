@@ -257,7 +257,7 @@ def start_game():
       IntroQuestion()
   
   #If player goes to vent
-  def Vent()
+  def Vent():
   
 #Runs the game
 start_game()
