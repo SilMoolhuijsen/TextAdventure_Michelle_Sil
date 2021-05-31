@@ -1,11 +1,15 @@
-yes = True
+global yes
+yes = False
 
 def wow():
-  if yes:
-    print("yes")
+  global yes
+  yes = False
 
-if yes:
-  print("true")
+  def wow2():
+    global yes
+    yes = True
+  
+  wow2()
+wow()
 
-if not yes:
-  print("False")
+print(yes)

@@ -54,6 +54,10 @@ def modified_input(string):
 #Function to (re)run the game
 def start_game():
 
+  #Tells game that the player is not freed at the beginning
+  global player_freed
+  player_freed = False
+
   #Lets the player choose the game's text speed
   def choose_ts():
     global ts
@@ -77,7 +81,7 @@ def start_game():
       ts = 0
     else:
       slowprint("That is not a valid text speed. Choose from Very Slow (1), Slow (2), Normal (3), Fast (4) or Very Fast (5).\n\n")
-      
+
       time.sleep(0.5)
 
       choose_ts()
