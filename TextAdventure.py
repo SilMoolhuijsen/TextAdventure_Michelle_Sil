@@ -14,7 +14,7 @@ txtSpeed6 = ["Fastest", "fastest", "6"]
 END_SENTENCE = [".", "!", "?"]
 COMMA = ","
 
-#Lists containing valid answers for yes or no questions
+#Lists containing some valid answers
 AnsYes = ["YES", "Y"]
 AnsNo = ["NO", "N"]
 
@@ -49,12 +49,12 @@ def start_game():
 
   #Lets the player choose the game's text speed
   def choose_ts():
-    #Standard text speed at the start of the game
-    global ts
+    #Standard text speed
     ts = 0.0075
     TextSpeed = slowprint("Text speeds: Very Slow (1), Slow (2), Normal (3), Fast (4), Very Fast (5) or Fasterst (6)\nChoose a text speed: ")
     TextSpeed = input()
     os.system('cls' if os.name == 'nt' else "printf '\033c'")
+    global ts
     if TextSpeed in txtSpeed5:
       ts = 0.005
     elif TextSpeed in txtSpeed4:
@@ -211,11 +211,8 @@ def start_game():
     slowprint("There's screwdrivers, hammers and crowbars.\n\n")
     ToolCheck = any(item in player_inventory for item in ToolsList)
     if ToolCheck is True:
-      tool_switch = modified_input("Would you like to switch")
-      if tool_switch in AnsYes:
-        player_inventory.remove(ToolsList)
-        Tools()
-      if tool_switch in AnsNo:
+      ToolSwitch = modified_input("Would you like to switch?")
+      if ToolsSwitch in AnsNo:
         Tools2()
     if "machete" in player_inventory:
       ToolsInput1 = modified_input("You're only able to hold one tool at a time. Which tool will you grab?\nA. A screwdriver\nB. A hammer\nC. A crowbar\n")
@@ -259,11 +256,7 @@ def start_game():
       IntroQuestion()
   
   #If player goes to vent
-  def Vent():
-    slowprint()
+  def Vent()
   
-  #Runs first function of the game
-  choose_ts()
-
 #Runs the game
 start_game()
