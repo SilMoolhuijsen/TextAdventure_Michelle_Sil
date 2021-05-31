@@ -91,7 +91,9 @@ def start_game():
   
   #Lets the player choose their name
   def choose_name():
-    player_name = modified_input("What's your name?\n")
+    slowprint("What's your name?\n")
+
+    player_name = input()
 
     slowprint("\nOkay " + player_name + ", let's embark on an adventure!")
     
@@ -111,6 +113,8 @@ def start_game():
       input("[PRESS ENTER FOR NEXT PAGE]")
       
       os.system('cls' if os.name == 'nt' else "printf '\033c'")
+
+      introtext2()
         
 
 
