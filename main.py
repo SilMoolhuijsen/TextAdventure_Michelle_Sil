@@ -152,10 +152,10 @@ def start_game():
     os.system('cls' if os.name == 'nt' else "printf '\033c'")
     
     if not player_freed:
-      IntroInput = modified_input("What will you do?\nA. Hop over to machete\nB. Reach for handgun\nC. Go to tools\nD. Move to door and try to open it\nE. Go to the vent\n")
+      IntroInput = modified_input("What will you do?\nA. Hop over to the machete\nB. Reach for the handgun\nC. Go to the tools\nD. Move to the door and try to open it\nE. Go to the vent\n")
 
     elif player_freed:
-      IntroInput = modified_input("What will you do?\nA. Hop over to machete\nB. Reach for handgun\nC. Go to tools\nD. Move to door and try to open it\nE. Go to the vent\n")
+      IntroInput = modified_input("What will you do?\nA. Walk to the machete\nB. Go to the handgun\nC. Walk over to the tools\nD. Move to the door and try to open it\nE. Go to the vent\n")
 
     if IntroInput == "A":
       Machete()
