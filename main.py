@@ -3,12 +3,12 @@ import os
 import sys
 
 #Lists containing valid inputs for every text speed
-txtSpeed5 = ["Very Fast", "very fast", "very Fast", "Very fast", "5"]
-txtSpeed4 = ["Fast", "fast", "4"]
-txtSpeed3 = ["Normal", "normal", "3"]
-txtSpeed2 = ["Slow", "slow", "2"]
-txtSpeed1 = ["Very Slow", "very slow", "very Slow", "Very slow", "1"]
-txtSpeed6 = ["Fastest", "fastest", "6"]
+txtSpeed5 = ["VERY FAST", "5"]
+txtSpeed4 = ["FAST", "4"]
+txtSpeed3 = ["NORMAL", "3"]
+txtSpeed2 = ["SLOW", "2"]
+txtSpeed1 = ["VERY SLOW", "1"]
+txtSpeed6 = ["FASTEST", "6"]
 
 #List and variable with characters used when slowprinting
 END_SENTENCE = [".", "!", "?"]
@@ -28,20 +28,27 @@ player_inventory = []
 def slowprint(s):
   for letter in s:
     sys.stdout.write(letter)
+
     sys.stdout.flush()
+    
     if letter in COMMA:
       time.sleep(ts * 8)
+    
     if letter in END_SENTENCE:
       time.sleep(ts * 16)
+    
     else:
       time.sleep(ts)
 
 #Function that removes spaces from user input, converts it into uppercase and slowprints it
 def modified_input(string):
   slowprint(string)
+
   a = input()
+
   a = a.replace(" ","")
   a = a.upper()
+  
   return a
 
 #Function to (re)run the game
@@ -52,8 +59,8 @@ def start_game():
     global ts
     ts = 0.0075
 
-    TextSpeed = slowprint("Text speeds: Very Slow (1), Slow (2), Normal (3), Fast (4), Very Fast (5) or Fastest (6)\nChoose a text speed: ")
-    TextSpeed = input()
+    TextSpeed = modified_input("Text speeds: Very Slow (1), Slow (2), Normal (3), Fast (4), Very Fast (5) or Fastest (6)\nChoose a text speed: ")
+    
     os.system('cls' if os.name == 'nt' else "printf '\033c'")
 
     if TextSpeed in txtSpeed5:
