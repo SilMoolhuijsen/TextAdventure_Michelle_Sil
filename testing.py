@@ -1,11 +1,6 @@
 import time
-
 class keyboardDisable():
-    def __init__(self):
-        self.on = False
-        global msvcrt
-        import msvcrt
-        
+
     def start(self):
         self.on = True
 
@@ -15,6 +10,10 @@ class keyboardDisable():
     def __call__(self): 
         while self.on:
             msvcrt.getwch()
+
+    def __init__(self):
+        self.on = False
+        import msvcrt
 
 disable = keyboardDisable()
 disable.start()
