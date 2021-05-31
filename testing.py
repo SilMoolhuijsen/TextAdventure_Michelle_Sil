@@ -1,6 +1,13 @@
-import os
+this = True
 
-def a():
-  os.system('cls' if os.name == 'nt' else "printf '\033c'")
+print(this)
 
-  print()
+def that():
+  global this
+  this = False
+
+  print(this)
+
+print(this)
+
+that()
