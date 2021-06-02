@@ -343,16 +343,59 @@ def start_game():
     slowprint("You're now close to the vent.\n")
     
     if player_freed:
-      while True:
-        GetHigher = modified_input("But you can't reach it. What will you use to get higher?")
+      if "CHAIR_PLACED" not in player_inventory:
+        while True:
+          GetHigher = modified_input("But you can't reach it. What will you use to get higher?")
 
-        if GetHigher == "CHAIR":
-          slowprint("You placed the chair underneath the vent. You can reach it now!")
+          if GetHigher == "CHAIR" or "THECHAIR":
+            slowprint("You placed the chair underneath the vent. You can reach it now!")
 
-          break
-        
-        else:
-          slowprint("You can't use that!\nPlease try again.")
+            break
+          
+          else:
+            slowprint("You can't use that!\nPlease try again.")
+
+            continue
+          
+          player_inventory.append("CHAIR_PLACED")
+      
+      else:
+        while True:
+          UseTool = modified_input("Will you use your" + str.lower(any(tool for tool in ToolsList in player_inventory)) + "to open the vent?")
+
+          if UseTool in AnsYes:
+            if "CROWBAR" in player_inventory:
+              slowprint("You used the crowbar to open the vent. However, you were too loud. Two armed men storm through the door.\nYOU WERE SHOT AT AGGRESIVELY WITH A SILENCED RIFLE!")
+
+              input("[PRESS ENTER]")
+
+              global dead
+              dead = True
+              game_over()
+
+            elif "HAMMER" in player_inventory:
+              slowprint("You can't use the hammer to open the vent. Try a different tool.")
+              
+              break
+
+            elif "SCREWDRIVER" in player_inventory:
+              slowprint("You carefully loosened the screws of the vent. You succesfully managed to climb into the vent. You start to crawl, and slowly, you see light appearing from the end of the vent.\n\nYOU MADE IT OUT!\n\nCONGRATULATIONS, YOU'VE WON!")
+
+              player_won()
+              
+
+            else:
+              slowprint("You don't have any tools on you!")
+
+          elif UseTool in AnsNo:
+            Centre()
+
+          else:
+            slowprint("Please enter either yes or no.")
+
+            time.sleep(1)
+
+            continue
 
     
     elif not player_freed:
@@ -405,13 +448,15 @@ def game_over():
   if dead is False:
     slowprint("You were knocked unconcious!\n\nGAME OVER")
 
-  try_again = modified_input("Would you like to try again? [Y/N]\n")
+  global player_won
+  def player_won():
+    try_again = modified_input("Would you like to try again? [Y/N]\n")
 
-  if try_again in AnsYes:
-    Restart()
+    if try_again in AnsYes:
+      Restart()
 
-  if try_again in AnsNo:
-    pass
+    if try_again in AnsNo:
+      pass
 
 #Runs the game
 start_game()
