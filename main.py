@@ -42,8 +42,8 @@ def slowprint(s):
       time.sleep(ts)
 
 #Function that removes spaces from user input, converts it into uppercase and slowprints it
-def modified_input(string):
-  slowprint(string)
+def modified_input(s):
+  slowprint(s)
 
   a = input()
 
@@ -340,13 +340,22 @@ def start_game():
   def Vent():
     os.system('cls' if os.name == 'nt' else "printf '\033c'")
 
-    slowprint("You're now close to the vent.")
+    slowprint("You're now close to the vent.\n")
     
-    if not player_freed:
-      
-      slowprint("")
+    if player_freed:
+      while True:
+        GetHigher = modified_input("But you can't reach it. What will you use to get higher?")
+
+        if GetHigher == "CHAIR":
+          slowprint("You placed the chair underneath the vent. You can reach it now!")
+
+          break
+        
+        else:
+          slowprint("You can't use that!\nPlease try again.")
+
     
-    elif player_freed:
+    elif not player_freed:
       slowprint("But you can't do anything here right now.\n\n")
 
       Centre()
@@ -378,7 +387,6 @@ def start_game():
       else:
         slowprint("You open the door cautiously and see two startled armed men.\nYOU WERE SHOT AT AGGRESSIVELY WITH A SILENCED RIFLE!\n\n")
 
-        global dead
         dead = True
         
         input("[PRESS ENTER]")

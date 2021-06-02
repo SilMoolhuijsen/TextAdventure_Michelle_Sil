@@ -35,15 +35,15 @@ def slowprint(s):
     if letter in COMMA:
       time.sleep(ts * 8)
     
-    if letter in END_SENTENCE:
+    elif letter in END_SENTENCE:
       time.sleep(ts * 16)
-    
+
     else:
       time.sleep(ts)
 
 #Function that removes spaces from user input, converts it into uppercase and slowprints it
-def modified_input(string):
-  slowprint(string)
+def modified_input(s):
+  slowprint(s)
 
   a = input()
 
@@ -54,10 +54,32 @@ def modified_input(string):
 
 #Function to (re)run the game
 def start_game():
+  os.system('cls' if os.name == 'nt' else "printf '\033c'")
 
   #Tells game that the player is not freed at the beginning
   global player_freed
   player_freed = False
+
+  #Tells game that the player is not dead at the beginning
+  global dead
+  dead = False
+
+  #Function for if player wants to try again after game over
+  global Restart
+  def Restart():
+    os.system('cls' if os.name == 'nt' else "printf '\033c'")
+
+    global dead
+    dead = False
+
+    global player_freed
+    player_freed = False
+    
+    player_inventory.clear()
+
+    time.sleep(0.4)
+
+    introtext3()
 
   #Lets the player choose the game's text speed
   def choose_ts():
@@ -102,7 +124,7 @@ def start_game():
     os.system('cls' if os.name == 'nt' else "printf '\033c'")
 
     intro()
-  
+
   #Introduction to the text adventure
   def intro():
     def introtext1():
@@ -129,6 +151,7 @@ def start_game():
       else:
         introtext3()
 
+    global introtext3
     def introtext3():
       slowprint("You don't feel any weapons on you, so you start to examine the room.\n")
       slowprint("You find you're sitting exactly in the centre of the room.\n")
@@ -196,11 +219,14 @@ def start_game():
     MacheteInput1 = modified_input("What will you do now?\nA. Kick the table until the machete falls off and cut the rope to free yourself.\nB. Try to grab the machete with your mouth and cut the rope to free yourself.\n")
 
     if MacheteInput1 == "A":
-      slowprint("You hear the deep voices coming closer. You see two armed men enter the room. One runs towards you.\nYOU WENT UNCONCIOUS BY A TASER GUN\n\n")
+      slowprint("You hear the deep voices coming closer. You see two armed men enter the room. One runs towards you.\nYOU WENT UNCONCIOUS BY A TASER GUN AND SHOT WITH A HANDGUN!\n\n")
 
-      input("[PRESS ENTER TO CONTINUE]")
-      
-      Machete()
+      input("[PRESS ENTER]")
+
+      global dead
+      dead = True
+
+      game_over()
     
     elif MacheteInput1 == "B":
       player_inventory.append("MACHETE")
@@ -241,7 +267,7 @@ def start_game():
 
         MoveQuestion.remove("handgun")
 
-        slowprint("It's is a fake. You take it anyways.")
+        slowprint("You're pretty sure it's a fake, but you take it anyways.")
       
       elif HandgunInput1 in AnsNo:
         slowprint("You left the handgun on the ground")
@@ -329,20 +355,54 @@ def start_game():
 
   #If player chose to go to door
   def Door():
+    os.system('cls' if os.name == 'nt' else "printf '\033c'")
+
     if not player_freed:
-      slowprint("You bump against the door and it opens. You see two armed men staring down at you.\nYOU WERE KNOCKED UNCONCIOUS\n\n")
+      slowprint("You bump against the door and it opens. You see two armed men staring down at you.\nYOU WERE KNOCKED UNCONCIOUS WITH A WOODEN BASEBALL BAT!\n\n")
 
-      input(["PRESS ENTER TO CONTINUE"])
-
+      input("[PRESS ENTER]")
+          
     elif player_freed:
-      slowprint("You open the door cautiously and see two startled armed men.\nYOU WERE SHOT AT AGGRESSIVELY WITH A SILENCED RIFLE\n\n")
+      if "HANDGUN" in player_inventory:
+        slowprint("When get closer to the door, you notice the deep voices getting louder, so you get ready. You grab your probably fake handgun with your right hand and tighly grasp your machete with with the other.\n\n")
+        
+        input("[PRESS ENTER TO CONTINUE]\n\n")
 
-      input("PRESS ENTER TO RESPAWN")
+        slowprint("You storm into the room on the other side of the door and see two armed men. You act as if your sure your handgun is real and aim it at the right man's head. But before you can plan your next action, your throat is slit by a third man you didn't notice.\n\nYOUR THROAT WAS SLIT USING A DAGGER!\n\n")
 
-    Centre()  
+        global dead
+        dead = True
+
+        input("[PRESS ENTER]")
+      
+      else:
+        slowprint("You open the door cautiously and see two startled armed men.\nYOU WERE SHOT AT AGGRESSIVELY WITH A SILENCED RIFLE!\n\n")
+
+        dead = True
+        
+        input("[PRESS ENTER]")
+
+    game_over()  
 
   #Runs first function of the game (choosing the game's text speed)
   choose_ts()
+
+def game_over():
+  os.system('cls' if os.name == 'nt' else "printf '\033c'")
+
+  if dead is True:
+    slowprint("You were killed!\n\nGAME OVER")
+  
+  if dead is False:
+    slowprint("You were knocked unconcious!\n\nGAME OVER")
+
+  try_again = modified_input("Would you like to try again? [Y/N]\n")
+
+  if try_again in AnsYes:
+    Restart()
+
+  if try_again in AnsNo:
+    pass
 
 #Runs the game
 start_game()
