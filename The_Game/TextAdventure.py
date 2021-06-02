@@ -105,6 +105,7 @@ def start_game():
     
     ClearConsole()
 
+    #Valid textspeeds
     if TextSpeed in txtSpeed5:
       ts = 0.005
     elif TextSpeed in txtSpeed4:
@@ -117,15 +118,16 @@ def start_game():
       ts = 0.1
     elif TextSpeed in txtSpeed6:
       ts = 0
+    #If input was invalid
     else:
       slowprint(txt.Invalid_ts)
 
       time.sleep(0.5)
 
-      #Recalls function
+      #Recalls 'choose_ts' function
       choose_ts()
     
-    #Calls next function
+    #Calls next function in the game
     choose_name()
   
   #Lets the player choose their name
@@ -145,6 +147,7 @@ def start_game():
 
   #Introduction to the text adventure
   def intro():
+    #First part of the intro
     def introtext1():
       slowprint(txt.IntroText1)
 
@@ -154,6 +157,7 @@ def start_game():
 
       introtext2()
 
+    #Second part of the intro
     def introtext2():
       slowprint(txt.IntroText2)
 
@@ -167,6 +171,7 @@ def start_game():
       else:
         introtext3()
 
+    #Third part of the intro (global)
     global introtext3
     def introtext3():
       slowprint(txt.IntroText3)
@@ -179,17 +184,21 @@ def start_game():
         introtext2()
       
       else:
+        #Calls first function with a decision
         Centre()
     
+    #Calls part 1 of the intro
     introtext1()
 
   #First choice of the game (allows player to move across first area/room)
   def Centre():
     ClearConsole()
     
+    #Question if player is not freed
     if not player_freed:
       IntroInput = modified_input(txt.MoveQuestion_NotFreed)
 
+    #Question if player is freed
     elif player_freed:
       #Global question is a list so it can be edited more easily
       global MoveQuestion
@@ -199,6 +208,7 @@ def start_game():
       for element in MoveQuestion:
         IntroInput = modified_input(element)
 
+    #Outcomes for valid inputs
     if IntroInput == "A":
       Machete()
 
@@ -214,6 +224,7 @@ def start_game():
     elif IntroInput == "E":
       Vent()
 
+    #If input was invalid
     else:
       slowprint(txt.ABCDE_Only)
 
@@ -230,6 +241,7 @@ def start_game():
     
     MacheteInput1 = modified_input(txt.MacheteQuestion)
 
+    #Outcomes for valid inputs
     if MacheteInput1 == "A":
       slowprint(txt.MacheteDead)
 
@@ -237,16 +249,22 @@ def start_game():
 
       global dead
       dead = True
-
+      
+      #Game over
+      #the player has died / been knocked unconcious
+      #Calls 'game_over' function
       game_over()
     
     elif MacheteInput1 == "B":
+      #Adds 'MACHETE' to player_inventory
       player_inventory.append("MACHETE")
       
+      #Removes 'MACHETE' from moving question
       MoveQuestion.remove(Machete)
 
       slowprint(txt.MacheteFreed)
 
+      #Tells the game that the player is now freed
       global player_freed
       player_freed = True
 
@@ -296,6 +314,8 @@ def start_game():
 
   #If player decides to go to tools
   def Tools():
+    ClearConsole()
+
     slowprint(txt.atTools)
 
     slowprint(txt.TheTools)
@@ -304,8 +324,10 @@ def start_game():
       slowprint(txt.Tools_NotFreed)
     
     elif player_freed:
+      #Checks for any tools in the player's inventory
       ToolCheck = any(item in player_inventory for item in ToolsList)
 
+      #If the player doesn't have any tools
       if ToolCheck is False:
         def ToolGrab():
           ClearConsole()
@@ -333,17 +355,35 @@ def start_game():
             time.sleep(1)
             
             ToolGrab()
+        
+        ToolGrab()
 
+      #If the player has a tool
       elif ToolCheck is True:
-        ToolSwitch = modified_input()
+        #While loop for question
+        while True:
+          #Asks if the player would like to switch tools
+          ToolSwitch = modified_input(txt.SwitchTool)
 
-        if ToolSwitch in AnsYes:
-          player_inventory.remove(tool for tool in ToolsList in player_inventory)
+          #If the player wants to switch tools
+          if ToolSwitch in AnsYes:
+            player_inventory.remove(tool for tool in ToolsList in player_inventory)
             
-          ToolGrab()
+            ToolGrab()
 
-        elif ToolSwitch in AnsNo:
-          slowprint("You kept the " + tool for tool in ToolsList in player_inventory + ".")
+          #If the player doesn't want to switch tools
+          elif ToolSwitch in AnsNo:
+            slowprint("You kept the " + tool for tool in ToolsList in player_inventory + ".")
+
+            time.sleep(1)
+
+            #Breaks out of while loop
+            break
+          
+          else:
+            slowprint(txt.ENT_Y_N)
+
+            time.sleep(1)
 
     Centre()
 
@@ -355,8 +395,11 @@ def start_game():
     slowprint(txt.atVent)
     
     if player_freed:
+      #Checks for 'CHAIR_PLACED' in the player's inventory
       if "CHAIR_PLACED" not in player_inventory:
+        #While loop
         while True:
+
           GetHigher = modified_input(txt.Higher)
 
           if GetHigher == "CHAIR" or "THECHAIR" or "ACHAIR":
@@ -370,7 +413,7 @@ def start_game():
           else:
             slowprint(txt.CantUse)
 
-            continue
+            time.sleep(1)
           
           player_inventory.append("CHAIR_PLACED")
       
@@ -392,6 +435,8 @@ def start_game():
             elif "HAMMER" in player_inventory:
               slowprint(txt.VentUsedHammer)
               
+              time.sleep(1)
+
               break
 
             elif "SCREWDRIVER" in player_inventory:
@@ -410,13 +455,13 @@ def start_game():
             slowprint(txt.ENT_Y_N)
 
             time.sleep(1)
-
-            continue
     
     elif not player_freed:
       slowprint(txt.CantDo)
 
-      Centre()
+      time.sleep(1)
+ 
+    Centre()
 
 
   #If player chooses to go to door
@@ -427,7 +472,7 @@ def start_game():
       slowprint(txt.Door_NotFreed)
 
       input(txt.PR_ENT)
-          
+
     elif player_freed:
       if "HANDGUN" in player_inventory:
         slowprint(txt.DoorHG1)
@@ -448,7 +493,7 @@ def start_game():
         
         input(txt.PR_ENT)
 
-    game_over()  
+    game_over()
 
   #Runs first function of the game (choosing the game's text speed)
   choose_ts()
