@@ -153,13 +153,11 @@ def start_game():
       ClearConsole()
 
       introtext2()
-        
-
 
     def introtext2():
       slowprint(txt.IntroText2)
 
-      ENTER_or_B = modified_input(txt.B_or_Enter)
+      ENTER_or_B = modified_input(txt.B_or_ENTER)
 
       ClearConsole()
 
@@ -190,9 +188,10 @@ def start_game():
     ClearConsole()
     
     if not player_freed:
-      IntroInput = modified_input(txt.MoveQuestion_PlayerNotFreed)
+      IntroInput = modified_input(txt.MoveQuestion_NotFreed)
 
     elif player_freed:
+      #Global question is a list so it can be edited more easily
       global MoveQuestion
       global Q, machete, handgun, tools, door, vent
       MoveQuestion = Q, machete, handgun, tools, door, vent = ["What will you do?", "A. Walk to the machete", "B. Go to the handgun", "C. Walk over to the tools", "D. Move to the door and try to open it", "E. Go to the vent"]
@@ -216,14 +215,14 @@ def start_game():
       Vent()
 
     else:
-      slowprint("\nPlease choose A, B, C, D or E only.")
+      slowprint(txt.ABCDE_Only)
 
       time.sleep(1)
       
       Centre()
 
 
-  #If player chose to go to machete 
+  #If player chooses to go to machete 
   def Machete():
     ClearConsole()
     
@@ -254,7 +253,7 @@ def start_game():
       input(txt.ENTtoCON)
     
     else:
-      slowprint("\nPlease choose A or B only.")
+      slowprint(txt.AB_Only)
 
       time.sleep(1)
       
@@ -263,30 +262,30 @@ def start_game():
     Centre()
 
 
-  #If player decided to go to handgun
+  #If player decides to go to handgun
   def Handgun():
     ClearConsole()
 
-    slowprint("You're at the handgun.\n\n")
+    slowprint(txt.atHG)
 
     if not player_freed:
-      slowprint("You can't reach it. You'll need to cut the rope to free yourself.\n\n")
+      slowprint(txt.HG_NotFreed)
     
     elif player_freed:
-      HandgunInput1 = modified_input("Will you grab the it? [Y/N]\n")
+      HandgunInput1 = modified_input(txt.Grab_HG)
 
       if HandgunInput1 in AnsYes:
         player_inventory.append("HANDGUN")
 
         MoveQuestion.remove("handgun")
 
-        slowprint("You're pretty sure it's a fake, but you take it anyways.")
+        slowprint(txt.ProbablyFake)
       
       elif HandgunInput1 in AnsNo:
-        slowprint("You left the handgun on the ground")
+        slowprint(txt.Left_HG)
       
       else:
-        slowprint("\nPlease choose Yes or No only.")
+        slowprint(txt.ENT_Y_N)
 
         time.sleep(1)
       
@@ -295,14 +294,14 @@ def start_game():
     Centre()
 
 
-  #If player decided to go to tools
+  #If player decides to go to tools
   def Tools():
-    slowprint("You made it to the tools.\n\n")
+    slowprint(txt.atTools)
 
-    slowprint("There's screwdrivers, hammers and crowbars.\n\n")
+    slowprint(txt.TheTools)
 
     if not player_freed:
-      slowprint("But unfortunately, you aren't able to grab any of them now. You'll need to free yourself first.")
+      slowprint(txt.Tools_NotFreed)
     
     elif player_freed:
       ToolCheck = any(item in player_inventory for item in ToolsList)
@@ -311,32 +310,32 @@ def start_game():
         def ToolGrab():
           ClearConsole()
 
-          ToolsInput1 = modified_input("You're only able to hold one tool at a time. Which tool will you grab?\nA. Screwdriver\nB. Hammer\nC. Crowbar\n")
+          ToolsInput1 = modified_input()
 
           if ToolsInput1 == "A":
             player_inventory.append("SCREWDRIVER")
 
-            slowprint("\n\nYou obtained a screwdriver!\n\n")
+            slowprint()
 
           elif ToolsInput1 == "B":
             player_inventory.append("HAMMER")
 
-            slowprint("\n\nYou obtained a hammer!\n\n")
+            slowprint()
 
           elif ToolsInput1 == "C":
             player_inventory.append("CROWBAR")
 
-            slowprint("\n\nYou obtained a crowbar!\n\n")
+            slowprint()
 
           else:
-            slowprint("\nPlease choose A, B or C only.")
+            slowprint()
 
             time.sleep(1)
             
             ToolGrab()
 
       elif ToolCheck is True:
-        ToolSwitch = modified_input("Would you like to switch?\n")
+        ToolSwitch = modified_input()
 
         if ToolSwitch in AnsYes:
           player_inventory.remove(tool for tool in ToolsList in player_inventory)
@@ -349,24 +348,27 @@ def start_game():
     Centre()
 
 
-  #If player decided to go to vent
+  #If player decides to go to vent
   def Vent():
     ClearConsole()
 
-    slowprint("You're now close to the vent.\n")
+    slowprint(txt.atVent)
     
     if player_freed:
       if "CHAIR_PLACED" not in player_inventory:
         while True:
-          GetHigher = modified_input("But you can't reach it. What will you use to get higher?")
+          GetHigher = modified_input(txt.Higher)
 
-          if GetHigher == "CHAIR" or "THECHAIR":
-            slowprint("You placed the chair underneath the vent. You can reach it now!")
+          if GetHigher == "CHAIR" or "THECHAIR" or "ACHAIR":
+            slowprint(txt.PlacedChair)
 
             break
           
+          elif GetHigher == "TABLE" or "THETABLE" or "ATABLE":
+            slowprint(txt.NoTable)
+          
           else:
-            slowprint("You can't use that!\nPlease try again.")
+            slowprint(txt.CantUse)
 
             continue
           
@@ -378,74 +380,73 @@ def start_game():
 
           if UseTool in AnsYes:
             if "CROWBAR" in player_inventory:
-              slowprint("You used the crowbar to open the vent. However, you were too loud. Two armed men storm through the door.\nYOU WERE SHOT AT AGGRESIVELY WITH A SILENCED RIFLE!")
+              slowprint(txt.VentUsedCrowbar)
 
-              input("[PRESS ENTER]")
+              input(txt.PR_ENT)
 
               global dead
               dead = True
+
               game_over()
 
             elif "HAMMER" in player_inventory:
-              slowprint("You can't use the hammer to open the vent. Try a different tool.")
+              slowprint(txt.VentUsedHammer)
               
               break
 
             elif "SCREWDRIVER" in player_inventory:
-              slowprint("You carefully loosened the screws of the vent. You succesfully managed to climb into the vent. You start to crawl, and slowly, you see light appearing from the end of the vent.\n\nYOU MADE IT OUT!\n\nCONGRATULATIONS, YOU'VE WON!")
+              slowprint(txt.VentUsedScrewdriver)
 
               player_won()
               
 
             else:
-              slowprint("You don't have any tools on you!")
+              slowprint(txt.NoTools)
 
           elif UseTool in AnsNo:
             Centre()
 
           else:
-            slowprint("Please enter either yes or no.")
+            slowprint(txt.ENT_Y_N)
 
             time.sleep(1)
 
             continue
-
     
     elif not player_freed:
-      slowprint("But you can't do anything here right now.\n\n")
+      slowprint(txt.CantDo)
 
       Centre()
-    
 
 
-  #If player chose to go to door
+  #If player chooses to go to door
   def Door():
     ClearConsole()
 
     if not player_freed:
-      slowprint("You bump against the door and it opens. You see two armed men staring down at you.\nYOU WERE KNOCKED UNCONCIOUS WITH A WOODEN BASEBALL BAT!\n\n")
+      slowprint(txt.Door_NotFreed)
 
-      input("[PRESS ENTER]")
+      input(txt.PR_ENT)
           
     elif player_freed:
       if "HANDGUN" in player_inventory:
-        slowprint("When get closer to the door, you notice the deep voices getting louder, so you get ready. You grab your probably fake handgun with your right hand and tighly grasp your machete with with the other.\n\n")
+        slowprint(txt.DoorHG1)
         
-        input("[PRESS ENTER TO CONTINUE]\n\n")
+        input(txt.ENTtoCON)
 
-        slowprint("You storm into the room on the other side of the door and see two armed men. You act as if your sure your handgun is real and aim it at the right man's head. But before you can plan your next action, your throat is slit by a third man you didn't notice.\n\nYOUR THROAT WAS SLIT USING A DAGGER!\n\n")
+        slowprint(txt.DoorHG2)
 
         global dead
         dead = True
 
-        input("[PRESS ENTER]")
+        input(txt.PR_ENT)
       
       else:
-        slowprint("You open the door cautiously and see two startled armed men.\nYOU WERE SHOT AT AGGRESSIVELY WITH A SILENCED RIFLE!\n\n")
+        slowprint(txt.Door_Freed_NoHG)
 
         dead = True
         
-        input("[PRESS ENTER]")
+        input(txt.PR_ENT)
 
     game_over()  
 
@@ -456,20 +457,20 @@ def game_over():
   ClearConsole()
 
   if dead is True:
-    slowprint("You were killed!\n\nGAME OVER")
+    slowprint(txt.GAMEOVER_KILLED)
   
   if dead is False:
-    slowprint("You were knocked unconcious!\n\nGAME OVER")
+    slowprint(txt.GAMEOVER_UNCONCIOUS)
 
   global player_won
   def player_won():
-    try_again = modified_input("Would you like to try again? [Y/N]\n")
+    try_again = modified_input(txt.Try_Again)
 
     if try_again in AnsYes:
       Restart()
 
     if try_again in AnsNo:
-      pass
+      exit()
 
 #Runs the game
 start_game()
