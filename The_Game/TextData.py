@@ -16,11 +16,11 @@ B_or_ENTER = "[ENTER B FOR LAST PAGE / PRESS ENTER FOR NEXT PAGE]\n"
 
 B_or_start = "[ENTER B FOR LAST PAGE / PRESS ENTER TO START ADVENTURE]\n"
 
-IntroText1 = "You're a millionair and retired CIA agent. You were one of the best fighters ofas the entire CIA. But you're not as skillfull as you were 25 years ago. You're 55 years old now. It's been 3 years since you retired. You've just been enjoying life since then. But that is all going to change.\n\n"
+IntroText1 = "You're a millionaire and retired CIA agent. You were one of the best fighters of the entire CIA. But you're not as skilful as you were 25 years ago. You're 55 years old now. It's been 3 years since you retired. You've just been enjoying life since then. But that is all going to change.\n\n"
 
 IntroText2 = "One morning, you wake up. When you analyse the situation, you notice that you're not in your bed, you're sitting in a chair. Also, you don't know this place. It's a room with no windows. Now, you also feel your ankles and torso have been tied to the chair that you're sitting in. You hear deep voices talking in the background. Maybe they're criminals who kidnapped you for your money. Or perhaps they want classified information about the CIA. You have no idea how or why you're in this situation. But you know that you have to get out of here as soon as possible.\n\n"
 
-IntroText3 = "You don't feel any weapons on you, so you start to examine the room.\nYou find you're sitting exactly in the centre of the room.\nYou see a machete on the table against the wall approximately 2 metres to your left. One of the kidnappers must have forgotten about it.\nThere's a handgun on the ground about 1,5 metres in front of you.\nAnd some tools hanging from the wall roughly 2 metres to your right-hand side.\nThere's two possible exits, the wall in front you has a door on the right side. And there is a vent in the ceiling close to where the handgun is located.\n\n"
+IntroText3 = "You don't feel any weapons on you, so you start to examine the room.\nYou find you're sitting exactly in the centre of the room.\nYou see a machete on the table against the wall approximately 2 metres to your left. One of the kidnappers must have forgotten about it.\nThere's a handgun on the ground about 1,5 metres in front of you.\nAnd some tools hanging from the wall roughly 2 metres to your right-hand side.\nThere's two possible exits: the wall in front you has a door on the right side, and there is a vent in the ceiling close to where the handgun is located.\n\n"
 
 MacheteTable = "You successfully made it to the table.\n\n"
 
@@ -30,13 +30,13 @@ MacheteQuestion = ("What will you do now?\nA. Kick the table until the machete f
 
 MacheteFreed = "You've acquired the machete! You place it in your right hand and use it to cut the rope. You're now able to move about freely."
 
-MacheteDead = "You hear the deep voices coming closer. You see two armed men enter the room. One runs towards you.\nYOU WERE KNOCKED UNCONCIOUS BY A TASER GUN AND SHOT WITH A HANDGUN!\n\n"
+MacheteDead = "You hear the deep voices coming closer. You see two armed men enter the room. One runs towards you.\nYOU WERE KNOCKED UNCONSCIOUS BY A TASER GUN AND SHOT WITH A HANDGUN!\n\n"
 
 atHG = "You're at the handgun.\n\n"
 
 HG_NotFreed = "You can't reach it. You'll need to cut the rope to free yourself.\n\n"
 
-Grab_HG = "Will you grab the it? [Y/N]\n"
+Grab_HG = "Will you grab it? [Y/N]\n"
 
 ProbablyFake = "You're pretty sure it's a fake, but you take it anyways."
 
@@ -68,17 +68,17 @@ NoTable = "You can't move the table. It has been screwed to the wall."
 
 CantUse = "You can't use that!\nPlease think of something else."
 
-VentUsedCrowbar = "You used the crowbar to open the vent. However, you were too loud. Two armed men storm through the door.\nYOU WERE SHOT AT AGGRESIVELY WITH A SILENCED RIFLE!"
+VentUsedCrowbar = "You used the crowbar to open the vent. However, you were too loud. Two armed men storm through the door.\nYOU WERE SHOT AT AGGRESSIVELY WITH A SILENCED RIFLE!"
 
 VentUsedHammer = "You can't use the hammer to open the vent. Try a different tool."
 
-VentUsedScrewdriver = "You carefully loosened the screws of the vent. You succesfully managed to climb into the vent. You start to crawl, and slowly, you see light appearing from the end of the vent.\n\nYOU MADE IT OUT!\n\nCONGRATULATIONS, YOU'VE WON!"
+VentUsedScrewdriver = "You carefully loosened the screws of the vent. You successfully managed to climb into the vent. You start to crawl, and slowly, you see light appearing from the end of the vent.\n\nYOU MADE IT OUT!\n\nCONGRATULATIONS, YOU'VE WON!"
 
 NoTools = "You don't have any tools on you!"
 
-Door_NotFreed1 = "You bump against the door and it opens. You see two armed men staring down at you.\nYOU WERE KNOCKED UNCONCIOUS WITH A WOODEN BASEBALL BAT!\n\nYou carried back to your chair.\n\n"
+Door_NotFreed1 = "You bump against the door and it opens. You see two armed men staring down at you.\nYOU WERE KNOCKED UNCONSCIOUS WITH A WOODEN BASEBALL BAT!\n\nYou carried back to your chair.\n\n"
 
-DoorHG1 = "When get closer to the door, you notice the deep voices getting louder, so you get ready. You grab your probably fake handgun with your right hand and tighly grasp your machete with with the other.\n\n"
+DoorHG1 = "As you approach the door, you notice the deep voices getting louder, so you get ready. You grab your probably fake handgun with your right hand and tightly grasp your machete with the other.\n\n"
 
 DoorHG2 = "You storm into the room on the other side of the door and see two armed men. You act as if your sure your handgun is real and aim it at the right man's head. But before you can plan your next action, your throat is slit by a third man you didn't notice.\n\nYOUR THROAT WAS SLIT USING A DAGGER!\n\n"
 
@@ -86,7 +86,7 @@ Door_Freed_NoHG = "You open the door cautiously and see two startled armed men.\
 
 GAMEOVER_KILLED = "You were killed!\n\nGAME OVER"
 
-GAMEOVER_UNCONCIOUS = "You were knocked unconcious!\n\nGAME OVER"
+GAMEOVER_UNCONCIOUS = "You were knocked unconscious!\n\nGAME OVER"
 
 Try_Again = "Would you like to try again? [Y/N]\n"
 
