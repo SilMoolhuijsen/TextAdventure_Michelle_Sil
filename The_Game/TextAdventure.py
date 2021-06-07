@@ -200,10 +200,13 @@ def start_game():
 
     #Question if player is freed
     elif player_freed:
-      #Global question is a list so it can be edited more easily
-      global MoveQuestion
+      #Question is a list and global so it can be edited more easily
       global Q, machete, handgun, tools, door, vent
-      MoveQuestion = Q, machete, handgun, tools, door, vent = ["What will you do?", "A. Walk to the machete", "B. Go to the handgun", "C. Walk over to the tools", "D. Move to the door and try to open it", "E. Go to the vent"]
+      Q, machete, handgun, tools, door, vent = ["What will you do?", "A. Walk to the machete", "B. Go to the handgun", "C. Walk over to the tools", "D. Move to the door and try to open it", "E. Go to the vent"]
+
+      #Names elements in list so it can be edited easily
+      global MoveQuestion
+      MoveQuestion = Q, machete, handgun, tools, door, vent
       
       for element in MoveQuestion:
         IntroInput = modified_input(element)
@@ -259,7 +262,7 @@ def start_game():
       player_inventory.append("MACHETE")
       
       #Removes 'MACHETE' from moving question
-      MoveQuestion.remove(Machete)
+      MoveQuestion.remove(machete)
 
       slowprint(txt.MacheteFreed)
 
@@ -506,8 +509,6 @@ def game_over():
   if dead is False:
     slowprint(txt.GAMEOVER_UNCONCIOUS)
 
-  time.sleep(1)
-
   global player_won
   def player_won():
     try_again = modified_input(txt.Try_Again)
@@ -517,6 +518,8 @@ def game_over():
 
     if try_again in AnsNo:
       exit()
+  
+  input(txt.PR_ENT)
 
 #Runs the game
 start_game()

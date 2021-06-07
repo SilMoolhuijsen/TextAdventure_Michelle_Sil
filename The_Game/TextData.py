@@ -84,9 +84,9 @@ DoorHG2 = "You storm into the room on the other side of the door and see two arm
 
 Door_Freed_NoHG = "You open the door cautiously and see two startled armed men.\nYOU WERE SHOT AT AGGRESSIVELY WITH A SILENCED RIFLE!\n\n"
 
-GAMEOVER_KILLED = "You were killed!\n\nGAME OVER"
+GAMEOVER_KILLED = "You were killed!\n\nGAME OVER\n\n"
 
-GAMEOVER_UNCONCIOUS = "You were knocked unconscious!\n\nGAME OVER\n\nYou were placed back in the chair by an armed man."
+GAMEOVER_UNCONCIOUS = "You were knocked unconscious!\n\nGAME OVER\n\nYou were placed back in the chair by an armed man.\n\n"
 
 Try_Again = "Would you like to try again? [Y/N]\n"
 
