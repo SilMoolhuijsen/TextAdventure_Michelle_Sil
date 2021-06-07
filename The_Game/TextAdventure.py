@@ -243,15 +243,14 @@ def start_game():
 
     #Outcomes for valid inputs
     if MacheteInput1 == "A":
-      slowprint(txt.MacheteDead)
+      ClearConsole()
+
+      slowprint(txt.MacheteKnocked)
 
       input(txt.PR_ENT)
-
-      global dead
-      dead = True
       
       #Game over
-      #the player has died / been knocked unconcious
+      #the player has been knocked unconcious
       #Calls 'game_over' function
       game_over()
     
@@ -506,6 +505,8 @@ def game_over():
   
   if dead is False:
     slowprint(txt.GAMEOVER_UNCONCIOUS)
+
+  time.sleep(1)
 
   global player_won
   def player_won():

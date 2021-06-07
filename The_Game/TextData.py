@@ -30,7 +30,7 @@ MacheteQuestion = ("What will you do now?\nA. Kick the table until the machete f
 
 MacheteFreed = "You've acquired the machete! You place it in your right hand and use it to cut the rope. You're now able to move about freely."
 
-MacheteDead = "You hear the deep voices coming closer. You see two armed men enter the room. One runs towards you.\nYOU WERE KNOCKED UNCONSCIOUS BY A TASER GUN AND SHOT WITH A HANDGUN!\n\n"
+MacheteKnocked = "You hear the deep voices coming closer. You see two armed men enter the room. One runs towards you.\nYOU WERE KNOCKED UNCONSCIOUS BY A TASER GUN\n\n"
 
 atHG = "You're at the handgun.\n\n"
 
@@ -86,7 +86,7 @@ Door_Freed_NoHG = "You open the door cautiously and see two startled armed men.\
 
 GAMEOVER_KILLED = "You were killed!\n\nGAME OVER"
 
-GAMEOVER_UNCONCIOUS = "You were knocked unconscious!\n\nGAME OVER"
+GAMEOVER_UNCONCIOUS = "You were knocked unconscious!\n\nGAME OVER\n\nYou were placed back in the chair by an armed man."
 
 Try_Again = "Would you like to try again? [Y/N]\n"
 
