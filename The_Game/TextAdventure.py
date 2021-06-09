@@ -216,11 +216,7 @@ def start_game():
 			#Question is a list and global so it can be edited more easily
 			global MoveQuestion
 			global Q, machete, handgun, tools, door, vent
-			MoveQuestion = Q, machete, handgun, tools, door, vent = [
-			    "What will you do?", "A. Walk to the machete",
-			    "B. Go to the handgun", "C. Walk over to the tools",
-			    "D. Move to the door and try to open it", "E. Go to the vent"
-			]
+			MoveQuestion = Q, machete, handgun, tools, door, vent = ["What will you do?", "A. Walk to the machete","B. Go to the handgun", "C. Walk over to the tools","D. Move to the door and try to open it", "E. Go to the vent"]
 
 			#Fixes MoveQuestion
 			if CentreFreedCount > 0:
@@ -354,7 +350,7 @@ def start_game():
 
 		elif player_freed:
 			#Checks for any tools in the player's inventory
-			ToolCheck = any(i in player_inventory for i in ToolsList)
+			ToolCheck = any(tool in player_inventory for tool in ToolsList)
 
 			#If the player doesn't have any tools
 			if ToolCheck is False:
@@ -397,16 +393,13 @@ def start_game():
 
 					#If the player wants to switch tools
 					if ToolSwitch in AnsYes:
-						player_inventory.remove(
-						    tool for tool in ToolsList in player_inventory)
+						player_inventory.remove(tool for tool in ToolsList in player_inventory)
 
 						ToolGrab()
 
 					#If the player doesn't want to switch tools
 					elif ToolSwitch in AnsNo:
-						slowprint("You kept the " + tool
-						          for tool in ToolsList in player_inventory +
-						          ".")
+						slowprint("You kept the " + tool for tool in ToolsList in player_inventory + ".")
 
 						time.sleep(1)
 
@@ -451,9 +444,7 @@ def start_game():
 
 			else:
 				while True:
-					UseTool = modified_input("Will you use your" + str.lower(
-					    any(tool for tool in ToolsList in player_inventory)) +
-					                         "to open the vent?")
+					UseTool = modified_input("Will you use your" + str.lower(any(tool for tool in ToolsList in player_inventory)) + "to open the vent?")
 
 					if UseTool in AnsYes:
 						if "CROWBAR" in player_inventory:
