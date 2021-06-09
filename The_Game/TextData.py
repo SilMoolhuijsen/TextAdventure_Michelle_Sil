@@ -76,7 +76,7 @@ VentUsedScrewdriver = "You carefully loosened the screws of the vent. You succes
 
 NoTools = "You don't have any tools on you!"
 
-Door_NotFreed1 = "You bump against the door and it opens. You see two armed men staring down at you.\nYOU WERE KNOCKED UNCONSCIOUS WITH A WOODEN BASEBALL BAT!\n\nYou carried back to your chair.\n\n"
+Door_NotFreed = "You bump against the door and it opens. You see two armed men staring down at you.\nYOU WERE KNOCKED UNCONSCIOUS WITH A WOODEN BASEBALL BAT!\n\nYou carried back to your chair.\n\n"
 
 DoorHG1 = "As you approach the door, you notice the deep voices getting louder, so you get ready. You grab your probably fake handgun with your right hand and tightly grasp your machete with the other.\n\n"
 
