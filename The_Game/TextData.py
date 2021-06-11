@@ -98,7 +98,7 @@ Try_Again = "Would you like to try again? [Y/N]\n"
 
 CantDo = "But you can't do anything here right now."
 
-ENT_Y_N = "\nPlease enter either yes or no."
+ENT_Y_N = "\nPlease enter either yes or no.\n"
 
 ABCDE_Only = "\nPlease choose A, B, C, D or E only."
 

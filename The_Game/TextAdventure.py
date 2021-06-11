@@ -96,6 +96,10 @@ def start_game():
   global dead
   dead = False
 
+  #Tells game that the player started over and has to win again
+  global PlayerWon
+  PlayerWon = False
+
   #For if player wants to try again after a game over
   if RestartAnswer == "Y":
     #Clears the player's inventory
@@ -535,9 +539,13 @@ def start_game():
             elif "SCREWDRIVER" in player_inventory:
               slowprint(txt.VentUsedScrewdriver)
 
+              #Tells the game that the player won
+              global PlayerWon
+              PlayerWon = True
+
               modified_input(txt.ENTtoCON)
 
-              player_won()
+              game_over()
 
             else:
               slowprint(txt.NoTools)
@@ -598,7 +606,6 @@ def game_over():
   ClearConsole()
 
   global player_won
-
   def player_won():
     ClearConsole()
 
@@ -616,7 +623,10 @@ def game_over():
     else:
       player_won()
 
-  if dead:
+  if PlayerWon:
+    player_won()
+
+  elif dead:
     slowprint(txt.GAMEOVER_KILLED)
 
     modified_input(txt.PR_ENT)
