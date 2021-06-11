@@ -4,37 +4,37 @@ Invalid_ts = "\nThat is not a valid text speed. Choose from Very Slow (1), Slow 
 
 Ask_Name = "What's your name?\n"
 
-LetsGo = ", let's embark on an adventure!\n\n"
+LetsGo = ", let's embark on an adventure!"
 
-ENTtoCON = "[PRESS ENTER TO CONTINUE]"
+ENTtoCON = "\n\n[PRESS ENTER TO CONTINUE]"
 
-PR_ENT = "[PRESS ENTER]"
+PR_ENT = "\n\n[PRESS ENTER]"
 
-EnterForNextPage = "[PRESS ENTER FOR NEXT PAGE]"
+EnterForNextPage = "\n\n[PRESS ENTER FOR NEXT PAGE]"
 
-B_or_ENTER = "[ENTER B FOR LAST PAGE / PRESS ENTER FOR NEXT PAGE]\n"
+B_or_ENTER = "\n\n[ENTER B FOR LAST PAGE / PRESS ENTER FOR NEXT PAGE]\n"
 
-B_or_start = "[ENTER B FOR LAST PAGE / PRESS ENTER TO START ADVENTURE]\n"
+B_or_start = "\n\n[ENTER B FOR LAST PAGE / PRESS ENTER TO START ADVENTURE]\n"
 
-IntroText1 = "You're a millionaire and retired CIA agent. You were one of the best fighters of the entire CIA. But you're not as skilful as you were 25 years ago. You're 55 years old now. It's been 3 years since you retired. You've just been enjoying life since then. But that is all going to change.\n\n"
+IntroText1 = "You're a millionaire and retired CIA agent. You were one of the best fighters of the entire CIA. But you're not as skilful as you were 25 years ago. You're 55 years old now. It's been 3 years since you retired. You've just been enjoying life since then. But that is all going to change."
 
-IntroText2 = "One morning, you wake up. When you analyse the situation, you notice that you're not in your bed, you're sitting in a chair. Also, you don't know this place. It's a room with no windows. Now, you also feel your ankles and torso have been tied to the chair that you're sitting in. You hear deep voices talking in the background. Maybe they're criminals who kidnapped you for your money. Or perhaps they want classified information about the CIA. You have no idea how or why you're in this situation. But you know that you have to get out of here as soon as possible.\n\n"
+IntroText2 = "One morning, you wake up. When you analyse the situation, you notice that you're not in your bed, you're sitting in a chair. Also, you don't know this place. It's a room with no windows. Now, you also feel your ankles and torso have been tied to the chair that you're sitting in. You hear deep voices talking in the background. Maybe they're criminals who kidnapped you for your money. Or perhaps they want classified information about the CIA. You have no idea how or why you're in this situation. But you know that you have to get out of here as soon as possible."
 
-IntroText3 = "You don't feel any weapons on you, so you start to examine the room.\nYou find you're sitting exactly in the centre of the room.\nYou see a machete on the table against the wall approximately 2 metres to your left. One of the kidnappers must have forgotten about it.\nThere's a handgun on the ground about 1,5 metres in front of you.\nAnd some tools hanging from the wall roughly 2 metres to your right-hand side.\nThere's two possible exits: the wall in front you has a door on the right side, and there is a vent in the ceiling close to where the handgun is located.\n\n"
+IntroText3 = "You don't feel any weapons on you, so you start to examine the room.\nYou find you're sitting exactly in the centre of the room.\nYou see a machete on the table against the wall approximately 2 metres to your left. One of the kidnappers must have forgotten about it.\nThere's a handgun on the ground about 1,5 metres in front of you.\nAnd some tools hanging from the wall roughly 2 metres to your right-hand side.\nThere's two possible exits: the wall in front you has a door on the right side, and there is a vent in the ceiling close to where the handgun is located."
 
 MacheteTable = "You successfully made it to the table.\n\n"
 
 MoveQuestion_NotFreed = "What will you do?\nA. Hop over to the machete\nB. Reach for the handgun\nC. Go to the tools\nD. Move to the door and try to open it\nE. Go to the vent\n"
 
-MacheteQuestion = ("What will you do now?\nA. Kick the table until the machete falls off and cut the rope to free yourself.\nB. Try to grab the machete with your mouth and cut the rope to free yourself.\n")
+MacheteQuestion = "What will you do now?\nA. Kick the table until the machete falls off and cut the rope to free yourself.\nB. Try to grab the machete with your mouth and cut the rope to free yourself.\n"
 
 MacheteFreed = "You've acquired the machete! You place it in your right hand and use it to cut the rope. You're now able to move about freely."
 
-MacheteKnocked = "You hear the deep voices coming closer. You see two armed men enter the room. One runs towards you.\nYOU WERE KNOCKED UNCONSCIOUS BY A TASER GUN\n\n"
+MacheteKnocked = "You hear the deep voices coming closer. You see two armed men enter the room. One runs towards you.\nYOU WERE KNOCKED UNCONSCIOUS BY A TASER GUN"
 
 atHG = "You're at the handgun.\n\n"
 
-HG_NotFreed = "You can't reach it. You'll need to cut the rope to free yourself.\n\n"
+HG_NotFreed = "You can't reach it. You'll need to cut the rope to free yourself."
 
 Grab_HG = "Will you grab it? [Y/N]\n"
 
@@ -76,23 +76,23 @@ VentUsedScrewdriver = "You carefully loosened the screws of the vent. You succes
 
 NoTools = "You don't have any tools on you!"
 
-Door_NotFreed = "You bump against the door and it opens. You see two armed men staring down at you.\nYOU WERE KNOCKED UNCONSCIOUS WITH A WOODEN BASEBALL BAT!\n\nYou carried back to your chair.\n\n"
+Door_NotFreed = "You bump against the door and it opens. You see two armed men staring down at you.\nYOU WERE KNOCKED UNCONSCIOUS WITH A WOODEN BASEBALL BAT!\n\nYou carried back to your chair."
 
-DoorHG1 = "As you approach the door, you notice the deep voices getting louder, so you get ready. You grab your probably fake handgun with your right hand and tightly grasp your machete with the other.\n\n"
+DoorHG1 = "As you approach the door, you notice the deep voices getting louder, so you get ready. You grab your probably fake handgun with your right hand and tightly grasp your machete with the other."
 
-DoorHG2 = "You storm into the room on the other side of the door and see two armed men. You act as if your sure your handgun is real and aim it at the right man's head. But before you can plan your next action, your throat is slit by a third man you didn't notice.\n\nYOUR THROAT WAS SLIT USING A DAGGER!\n\n"
+DoorHG2 = "You storm into the room on the other side of the door and see two armed men. You act as if your sure your handgun is real and aim it at the right man's head. But before you can plan your next action, your throat is slit by a third man you didn't notice.\n\nYOUR THROAT WAS SLIT USING A DAGGER!"
 
-Door_Freed_NoHG = "You open the door cautiously and see two startled armed men.\nYOU WERE SHOT AT AGGRESSIVELY WITH A SILENCED RIFLE!\n\n"
+Door_Freed_NoHG = "You open the door cautiously and see two startled armed men.\nYOU WERE SHOT AT AGGRESSIVELY WITH A SILENCED RIFLE!"
 
-GAMEOVER_KILLED = "You were killed!\n\nGAME OVER\n\n"
+GAMEOVER_KILLED = "You were killed!\n\nGAME OVER"
 
-GAMEOVER_UNCONCIOUS = "You were knocked unconscious!\n\nGAME OVER\n\nYou were placed back in the chair by an armed man.\n\n"
+GAMEOVER_UNCONCIOUS = "You were knocked unconscious!\n\nGAME OVER\n\nYou were placed back in the chair by an armed man."
 
 Try_Again = "Would you like to try again? [Y/N]\n"
 
-CantDo = "But you can't do anything here right now.\n\n"
+CantDo = "But you can't do anything here right now."
 
-ENT_Y_N = "Please enter either yes or no."
+ENT_Y_N = "\nPlease enter either yes or no."
 
 ABCDE_Only = "\nPlease choose A, B, C, D or E only."
 
