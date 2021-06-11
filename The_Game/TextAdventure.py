@@ -4,6 +4,7 @@ import os
 import sys
 import TextData
 
+#This means that we'll only have to type txt. instead of TextData when we're entering text from the TextData file in a printlike statement
 txt = TextData
 
 #Lists containing valid inputs for every text speed
@@ -30,7 +31,6 @@ ToolsList = ["SCREWDRIVER", "HAMMER", "CROWBAR"]
 
 #List that stores all of the player's items
 player_inventory = []
-
 
 #Function that prints strings letter by letter
 def slowprint(s):
@@ -77,29 +77,18 @@ def start_game():
 	#Tells game that the player is not dead at the beginning
 	global dead
 	dead = False
-
-	#Global function for if player wants to try again after a game over
-	global Restart
-
-	def Restart():
-		ClearConsole()
-
-		#Tells game that player is alive again
-		global dead
-		dead = False
-
-		#Tells game that player is tied up again
-		global player_freed
-		player_freed = False
-
-		#Clears Players
-		player_inventory.clear()
-
-		#Waits for 0.4 seconds
-		time.sleep(0.4)
-
-		#Runs introtext3, to skip first part of the intro when player restarts
-		introtext3()
+  
+  #For if player wants to try again after a game over
+  if RestartAnswer == "Y":
+    #Clears the player's inventory
+    player_inventory.clear()
+    #Waits for 0.4 seconds
+    time.sleep(0.4)
+    #Runs introtext3, to skip first part of the intro when player restarts
+    introtext3()
+  
+  else:
+    pass
 
 	#Lets the player choose the game's text speed
 	def choose_ts():
@@ -203,39 +192,29 @@ def start_game():
 	def Centre():
 		ClearConsole()
 
-		#Question if player is not freed
-		if not player_freed:
-			IntroInput = modified_input(txt.MoveQuestion_NotFreed)
+    if CentreCounter > 0:
+      MoveQuestion = Q, machete, handgun, tools, door, vent = ["What will you do?", "A. Walk to the machete","B. Go to the handgun", "C. Walk over to the tools","D. Move to the door and try to open it", "E. Go to the vent"]
 
-		#Question if player is freed
+      #Fixes MoveQuestion
+      global x
+      n = 0
+      for e in MoveQuestion:
+        MoveQuestion.e.replace((l for l in ABCDE), x)
+
+        if n > 0:
+          x = ABCDE[n - 1]
+
+        n += 1
+		
+    #Question if player is freed
 		elif player_freed:
-			#Global variable that stores the number of times the player has been to MoveQuestion
-			global CentreFreedCount
-			CentreFreedCount = 0
-
-			#Question is a list and global so it can be edited more easily
-			global MoveQuestion
-			global Q, machete, handgun, tools, door, vent
-			MoveQuestion = Q, machete, handgun, tools, door, vent = ["What will you do?", "A. Walk to the machete","B. Go to the handgun", "C. Walk over to the tools","D. Move to the door and try to open it", "E. Go to the vent"]
-
-			#Fixes MoveQuestion
-			if CentreFreedCount > 0:
-				global x
-				n = 0
-				for e in MoveQuestion:
-					MoveQuestion.e.replace((l for l in ABCDE), x)
-
-					if n > 0:
-						x = ABCDE[n - 1]
-
-					n += 1
-
 			#Prints MoveQuestion
 			for i in MoveQuestion:
 				IntroInput = modified_input(i)
 
-			#Adds 1 to CentreFreedCount
-			CentreFreedCount += 1
+		#Question if player is not freed
+		if not player_freed:
+			IntroInput = modified_input(txt.MoveQuestion_NotFreed)
 
 		#Outcomes for valid inputs
 		if IntroInput == "A":
@@ -537,7 +516,8 @@ def game_over():
 		try_again = modified_input(txt.Try_Again)
 
 		if try_again in AnsYes:
-			Restart()
+      global RestartAnswer
+			RestartAnswer = "Y"
 
 		if try_again in AnsNo:
 			exit()
