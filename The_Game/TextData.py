@@ -64,7 +64,9 @@ SwitchTool = "Would you like to switch?\n"
 
 atVent = "You're now close to the vent.\n"
 
-Higher = "But you can't reach it. What will you use to get higher?"
+GetHigher = "But you can't reach it. What will you use to get higher?\n"
+
+Higher = "\n\nWhat will you use to get higher?\n"
 
 PlacedChair = "You placed the chair underneath the vent. You can reach it now!"
 
