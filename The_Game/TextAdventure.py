@@ -50,13 +50,8 @@ def slowprint(s):
 
 
 #Function that removes spaces from user input, converts it into uppercase and slowprints it
-def modified_input(s, s_or_l = None):
-  if s_or_l is None:
-    slowprint(s)
-
-  elif s_or_l == "l":
-    for e in s:
-      print(e)
+def modified_input(s):
+  slowprint(s)
 
   a = input()
 
@@ -89,6 +84,7 @@ def start_game():
   #For if player wants to try again after a game over
   if RestartAnswer == "Y":
     #Clears the player's inventory
+    global player_inventory
     player_inventory.clear()
     #Waits for 0.4 seconds
     time.sleep(0.4)
@@ -144,7 +140,7 @@ def start_game():
 
     slowprint("\nOkay " + player_name + txt.LetsGo)
 
-    input(txt.ENTtoCON)
+    modified_input(txt.ENTtoCON)
 
     ClearConsole()
 
@@ -200,33 +196,17 @@ def start_game():
   def Centre():
     ClearConsole()
 
-    #Variable that stores the number of times player has called Centre()
-    CentreCounter = 0
-
     #Question for after the player is freed is a global list so it can be edited more easily
     global MoveQuestion
     global Q, machete, handgun, tools, door, vent
     MoveQuestion = Q, machete, handgun, tools, door, vent = ["Where will you go?", "A. Machete","B. Handgun", "C. Tools","D. Open the door", "E. Vent"]
 
-    #Fixes MoveQuestion
-    if CentreCounter > 0:
-      global x
-      n = 0
-      for e in MoveQuestion:
-        MoveQuestion.e.replace((l for l in ABCDE), x)
-
-        if n > 0:
-          x = ABCDE[n - 1]
-
-        n += 1
-    
-    #Adds 1 to CentreCounter
-    CentreCounter += 1
-
     #Question if player is freed
     if player_freed:
       #Prints MoveQuestion
-        IntroInput = modified_input(MoveQuestion, s_or_l = "l")
+      for e in MoveQuestion:
+        slowprint(e)
+        IntroInput = modified_input()
 
     #Question if player is not freed
     elif not player_freed:
@@ -234,10 +214,26 @@ def start_game():
 
     #Outcomes for valid inputs
     if IntroInput == "A":
-      Machete()
+      if "MACHETE" in player_inventory:
+        slowprint(txt.AlreayMachete)
+        
+        modified_input(txt.ENTtoCON)
+        
+        Centre()
 
+      else:
+        Machete()
+      
     elif IntroInput == "B":
-      Handgun()
+      if "HANDGUN" in player_inventory:
+        slowprint(txt.AlreayHG)
+        
+        modified_input(txt.ENTtoCON)
+        
+        Centre()
+      
+      else:
+        Handgun()
 
     elif IntroInput == "C":
       Tools()
@@ -279,9 +275,11 @@ def start_game():
 
     elif MacheteInput1 == "B":
       #Adds 'MACHETE' to player_inventory
+      global player_inventory
       player_inventory.append("MACHETE")
 
       #Removes 'MACHETE' from moving question
+      global MoveQuestion
       MoveQuestion.remove(machete)
 
       slowprint(txt.MacheteFreed)
@@ -290,7 +288,7 @@ def start_game():
       global player_freed
       player_freed = True
 
-      input(txt.ENTtoCON)
+      modified_input(txt.ENTtoCON)
 
     else:
       slowprint(txt.AB_Only)
@@ -310,18 +308,26 @@ def start_game():
     if not player_freed:
       slowprint(txt.HG_NotFreed)
 
+      modified_input(txt.ENTtoCON)
+
     elif player_freed:
       HandgunInput1 = modified_input(txt.Grab_HG)
 
       if HandgunInput1 in AnsYes:
+        global player_inventory
         player_inventory.append("HANDGUN")
 
+        global MoveQuestion
         MoveQuestion.remove(handgun)
-
+        
         slowprint(txt.ProbablyFake)
+
+        modified_input(txt.ENTtoCON)
 
       elif HandgunInput1 in AnsNo:
         slowprint(txt.Left_HG)
+
+        modified_input(txt.ENTtoCON)
 
       else:
         slowprint(txt.ENT_Y_N)
@@ -329,7 +335,7 @@ def start_game():
         time.sleep(1)
 
         Handgun()
-
+      
     Centre()
 
   #If player decides to go to tools
@@ -342,6 +348,8 @@ def start_game():
 
     if not player_freed:
       slowprint(txt.Tools_NotFreed)
+
+      modified_input(txt.ENTtoCON)
 
     elif player_freed:
       #Checks for any tools in the player's inventory
@@ -356,19 +364,26 @@ def start_game():
           ToolsInput1 = modified_input(txt.ChooseTool)
 
           if ToolsInput1 == "A":
+            global player_inventory
             player_inventory.append("SCREWDRIVER")
 
             slowprint(txt.GotScrewdriver)
+
+            modified_input(txt.ENTtoCON)
 
           elif ToolsInput1 == "B":
             player_inventory.append("HAMMER")
 
             slowprint(txt.GotHammer)
 
+            modified_input(txt.ENTtoCON)
+
           elif ToolsInput1 == "C":
             player_inventory.append("CROWBAR")
 
             slowprint(txt.GotCrowbar)
+
+            modified_input(txt.ENTtoCON)
 
           else:
             slowprint(txt.ABC_Only)
@@ -390,6 +405,7 @@ def start_game():
 
           #If the player wants to switch tools
           if ToolSwitch in AnsYes:
+            global player_inventory
             player_inventory.remove(tool for tool in ToolsList in player_inventory)
 
             ToolGrab()
@@ -398,7 +414,7 @@ def start_game():
           elif ToolSwitch in AnsNo:
             slowprint("You kept the " + tool for tool in ToolsList in player_inventory + ".")
 
-            time.sleep(1)
+            modified_input(txt.ENTtoCON)
 
             #Breaks out of while loop
             break
@@ -417,8 +433,12 @@ def start_game():
     slowprint(txt.atVent)
 
     if player_freed:
+      global player_inventory
+
       #Checks for 'CHAIR_PLACED' in the player's inventory
       if "CHAIR_PLACED" not in player_inventory:
+        ClearConsole()
+
         #While loop
         while True:
 
@@ -427,10 +447,14 @@ def start_game():
           if GetHigher == "CHAIR" or "THECHAIR" or "ACHAIR":
             slowprint(txt.PlacedChair)
 
+            modified_input(txt.ENTtoCON)
+
             break
 
           elif GetHigher == "TABLE" or "THETABLE" or "ATABLE":
             slowprint(txt.NoTable)
+
+            time.sleep(2)
 
           else:
             slowprint(txt.CantUse)
@@ -457,17 +481,21 @@ def start_game():
             elif "HAMMER" in player_inventory:
               slowprint(txt.VentUsedHammer)
 
-              time.sleep(1)
+              modified_input(txt.ENTtoCON)
 
               break
 
             elif "SCREWDRIVER" in player_inventory:
               slowprint(txt.VentUsedScrewdriver)
 
+              modified_input(txt.ENTtoCON)
+
               player_won()
 
             else:
               slowprint(txt.NoTools)
+
+              modified_input(txt.ENTtoCON)
 
           elif UseTool in AnsNo:
             Centre()
@@ -497,7 +525,7 @@ def start_game():
       if "HANDGUN" in player_inventory:
         slowprint(txt.DoorHG1)
 
-        input(txt.ENTtoCON)
+        modified_input(txt.ENTtoCON)
 
         slowprint(txt.DoorHG2)
 

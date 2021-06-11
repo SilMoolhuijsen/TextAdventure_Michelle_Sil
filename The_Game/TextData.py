@@ -26,6 +26,10 @@ MacheteTable = "You successfully made it to the table.\n\n"
 
 MoveQuestion_NotFreed = "What will you do?\nA. Hop over to the machete\nB. Reach for the handgun\nC. Go to the tools\nD. Move to the door and try to open it\nE. Go to the vent\n"
 
+AlreadyMachete = "You already have the machete."
+
+AlreadyHG = "You already have the handgun"
+
 MacheteQuestion = "What will you do now?\nA. Kick the table until the machete falls off and cut the rope to free yourself.\nB. Try to grab the machete with your mouth and cut the rope to free yourself.\n"
 
 MacheteFreed = "\nYou've acquired the machete! You place it in your right hand and use it to cut the rope. You're now able to move about freely."
