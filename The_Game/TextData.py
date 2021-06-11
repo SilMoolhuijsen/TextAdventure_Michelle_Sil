@@ -1,6 +1,6 @@
 WhichTextSpeed = "Text speeds: Very Slow (1), Slow (2), Normal (3), Fast (4), Very Fast (5) or Fastest (6)\nChoose a text speed: "
 
-Invalid_ts = "\nThat is not a valid text speed. Choose from Very Slow (1), Slow (2), Normal (3), Fast (4) or Very Fast (5).\n\n"
+Invalid_ts = "That is not a valid text speed. Choose from Very Slow (1), Slow (2), Normal (3), Fast (4) or Very Fast (5).\n\n"
 
 Ask_Name = "What's your name?\n"
 
@@ -12,9 +12,9 @@ PR_ENT = "\n\n[PRESS ENTER]"
 
 EnterForNextPage = "\n\n[PRESS ENTER FOR NEXT PAGE]"
 
-B_or_ENTER = "\n\n[ENTER B FOR LAST PAGE / PRESS ENTER FOR NEXT PAGE]\n"
+B_or_ENTER = "\n\n[ENTER B FOR LAST PAGE / PRESS ENTER FOR NEXT PAGE]"
 
-B_or_start = "\n\n[ENTER B FOR LAST PAGE / PRESS ENTER TO START ADVENTURE]\n"
+B_or_start = "\n\n[ENTER B FOR LAST PAGE / PRESS ENTER TO START ADVENTURE]"
 
 IntroText1 = "You're a millionaire and retired CIA agent. You were one of the best fighters of the entire CIA. But you're not as skilful as you were 25 years ago. You're 55 years old now. It's been 3 years since you retired. You've just been enjoying life since then. But that is all going to change."
 
@@ -28,7 +28,7 @@ MoveQuestion_NotFreed = "What will you do?\nA. Hop over to the machete\nB. Reach
 
 MacheteQuestion = "What will you do now?\nA. Kick the table until the machete falls off and cut the rope to free yourself.\nB. Try to grab the machete with your mouth and cut the rope to free yourself.\n"
 
-MacheteFreed = "You've acquired the machete! You place it in your right hand and use it to cut the rope. You're now able to move about freely."
+MacheteFreed = "\nYou've acquired the machete! You place it in your right hand and use it to cut the rope. You're now able to move about freely."
 
 MacheteKnocked = "You hear the deep voices coming closer. You see two armed men enter the room. One runs towards you.\nYOU WERE KNOCKED UNCONSCIOUS BY A TASER GUN"
 

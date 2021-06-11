@@ -50,8 +50,13 @@ def slowprint(s):
 
 
 #Function that removes spaces from user input, converts it into uppercase and slowprints it
-def modified_input(s):
-  slowprint(s)
+def modified_input(s, s_or_l = None):
+  if s_or_l is None:
+    slowprint(s)
+
+  elif s_or_l == "l":
+    for e in s:
+      print(e)
 
   a = input()
 
@@ -98,7 +103,7 @@ def start_game():
     #Globalizes variable 'ts'
     global ts
     #Sets 'ts' to 0.0075 for the start of the game
-    ts = 0.0075
+    ts = 0.005
 
     #Variable that stores the player's chosen text speed
     TextSpeed = modified_input(txt.WhichTextSpeed)
@@ -201,7 +206,7 @@ def start_game():
     #Question for after the player is freed is a global list so it can be edited more easily
     global MoveQuestion
     global Q, machete, handgun, tools, door, vent
-    MoveQuestion = Q, machete, handgun, tools, door, vent = ["What will you do?", "A. Walk to the machete","B. Go to the handgun", "C. Walk over to the tools","D. Move to the door and try to open it", "E. Go to the vent"]
+    MoveQuestion = Q, machete, handgun, tools, door, vent = ["Where will you go?", "A. Machete","B. Handgun", "C. Tools","D. Open the door", "E. Vent"]
 
     #Fixes MoveQuestion
     if CentreCounter > 0:
@@ -221,8 +226,7 @@ def start_game():
     #Question if player is freed
     if player_freed:
       #Prints MoveQuestion
-      for i in MoveQuestion:
-        IntroInput = modified_input(i)
+        IntroInput = modified_input(MoveQuestion, s_or_l = "l")
 
     #Question if player is not freed
     elif not player_freed:
@@ -344,12 +348,12 @@ def start_game():
       ToolCheck = any(tool in player_inventory for tool in ToolsList)
 
       #If the player doesn't have any tools
-      if ToolCheck is False:
+      if not ToolCheck:
 
         def ToolGrab():
           ClearConsole()
 
-          ToolsInput1 = modified_input()
+          ToolsInput1 = modified_input(txt.ChooseTool)
 
           if ToolsInput1 == "A":
             player_inventory.append("SCREWDRIVER")
@@ -367,7 +371,7 @@ def start_game():
             slowprint(txt.GotCrowbar)
 
           else:
-            slowprint()
+            slowprint(txt.ABC_Only)
 
             time.sleep(1)
 
@@ -378,7 +382,7 @@ def start_game():
         ToolGrab()
 
       #If the player has a tool
-      elif ToolCheck is True:
+      elif ToolCheck:
         #While loop for question
         while True:
           #Asks if the player would like to switch tools
@@ -518,14 +522,13 @@ def start_game():
 def game_over():
   ClearConsole()
 
-  if dead is True:
+  if dead:
     slowprint(txt.GAMEOVER_KILLED)
 
-  if dead is False:
+  elif not dead:
     slowprint(txt.GAMEOVER_UNCONCIOUS)
 
   global player_won
-
   def player_won():
     try_again = modified_input(txt.Try_Again)
 
@@ -533,7 +536,7 @@ def game_over():
       global RestartAnswer
       RestartAnswer = "Y"
 
-    if try_again in AnsNo:
+    elif try_again in AnsNo:
       exit()
 
   input(txt.PR_ENT)
