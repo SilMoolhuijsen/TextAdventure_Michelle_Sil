@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-07-02T21:14:45.472Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36" etag="9efJcmV1FREYAqFdEbn1" version="14.7.0" type="github">
+<mxfile host="app.diagrams.net" modified="2021-07-02T21:17:20.776Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36" etag="rlQZhC2osm39UYuo8elf" version="14.7.0" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="712" dy="1730" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -55,14 +55,19 @@
         <mxCell id="IR69IC-LFOGQGs9txRzw-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="IR69IC-LFOGQGs9txRzw-0" target="IR69IC-LFOGQGs9txRzw-5">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="IR69IC-LFOGQGs9txRzw-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="IR69IC-LFOGQGs9txRzw-0" target="IR69IC-LFOGQGs9txRzw-14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="490" y="530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="IR69IC-LFOGQGs9txRzw-0" value="def question/action" style="rhombus;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="347.25" y="410" width="134.5" height="60" as="geometry" />
         </mxCell>
         <mxCell id="IR69IC-LFOGQGs9txRzw-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="IR69IC-LFOGQGs9txRzw-2" target="IR69IC-LFOGQGs9txRzw-0">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="IR69IC-LFOGQGs9txRzw-2" value="if pass: true; add item to globalinv" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="160" y="640" width="120" height="40" as="geometry" />
+        <mxCell id="IR69IC-LFOGQGs9txRzw-2" value="if pass BUT action /= vent: true; add item to globalinv" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="160" y="640" width="120" height="50" as="geometry" />
         </mxCell>
         <mxCell id="IR69IC-LFOGQGs9txRzw-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="IR69IC-LFOGQGs9txRzw-5" target="IR69IC-LFOGQGs9txRzw-0">
           <mxGeometry relative="1" as="geometry" />
@@ -78,6 +83,15 @@
         </mxCell>
         <mxCell id="IR69IC-LFOGQGs9txRzw-10" value="if item already in player inv, remove connected action from list of next actions" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="260" y="510" width="120" height="74.5" as="geometry" />
+        </mxCell>
+        <mxCell id="IR69IC-LFOGQGs9txRzw-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="IR69IC-LFOGQGs9txRzw-14" target="IR69IC-LFOGQGs9txRzw-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IR69IC-LFOGQGs9txRzw-14" value="if action is vent; proceed with game win" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="430" y="500" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IR69IC-LFOGQGs9txRzw-19" value="PLAYER WIN" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="430" y="600" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
